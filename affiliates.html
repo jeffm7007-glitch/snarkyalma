@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnarkyAlma Affiliates — Show Me The Money</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lime: #a3e635;
+      --lime-dark: #84cc16;
+      --dark: #0a0a0a;
+      --gray: #1a1a1a;
+      --light: #f5f5f5;
+      --red: #ef4444;
+      --gold: #fbbf24;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 60px;
+      background: radial-gradient(ellipse at top, #1a1a2e 0%, var(--dark) 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--lime); }
+    .hero-sub {
+      font-size: 20px;
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--lime);
+      color: var(--dark);
+      padding: 18px 48px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: scale(1.05); }
+    .hero-note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* MONEY SECTION */
+    .money-section {
+      padding: 80px 24px;
+      background: var(--gray);
+    }
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 48px;
+    }
+    .section-title span { color: var(--gold); }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .tier {
+      background: var(--dark);
+      border: 2px solid #333;
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .tier:hover { border-color: var(--lime); }
+    .tier.popular {
+      border-color: var(--gold);
+      transform: scale(1.05);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .tier-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tier-commission {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--lime);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .tier-commission span { font-size: 24px; }
+    .tier-desc {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .tier-math {
+      background: rgba(163, 230, 53, 0.1);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .tier-math strong { color: var(--lime); }
+
+    /* TOOLS SECTION */
+    .tools-section {
+      padding: 80px 24px;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .tool-card {
+      background: var(--gray);
+      padding: 32px;
+      border-radius: 12px;
+      border-left: 4px solid var(--lime);
+    }
+    .tool-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .tool-card p {
+      color: #888;
+      font-size: 15px;
+    }
+
+    /* SWEEPSTAKES */
+    .sweepstakes {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #1a1a2e 0%, var(--gray) 100%);
+      text-align: center;
+    }
+    .sweepstakes h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .sweepstakes h2 span { color: var(--lime); }
+    .sweepstakes p {
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .prize-box {
+      display: inline-block;
+      background: rgba(163, 230, 53, 0.1);
+      border: 2px solid var(--lime);
+      padding: 32px 48px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+    .prize-box h3 {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--lime);
+      margin-bottom: 8px;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: radial-gradient(ellipse at bottom, #1a1a2e 0%, var(--dark) 70%);
+    }
+    .cta-section h2 {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta-section h2 span { color: var(--gold); }
+    .cta-options {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .cta-option {
+      background: var(--gray);
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .cta-option strong { color: var(--lime); }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🔥 GHL Affiliates — This Is Your Escape Hatch</div>
+      <h1>Show Me <span>The Money</span></h1>
+      <p class="hero-sub">
+        You're a Tier 1 affiliate making 40% on GHL. What happens when they change the terms? 
+        SnarkyAlma gives you up to <strong>90% recurring</strong> — and you own the customer.
+      </p>
+      <a href="#apply" class="cta-btn">Apply for Super Affiliate License</a>
+      <p class="hero-note">🚂 Hop on the SnarkyAlma train — it's leaving the station. Plumbing. HVAC. Locksmith. Auto glass. Garage door. And more.</p>
+      <p style="margin-top: 16px;">
+        <a href="site-in-a-box.html" style="color: var(--lime); text-decoration: underline;">→ See what's included in every Site in a Box ($297/mo, everything included)</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- MONEY TIERS -->
+  <section class="money-section">
+    <div class="container">
+      <h2 class="section-title">Choose Your <span>Payout</span></h2>
+      <div class="tiers">
+        <div class="tier">
+          <div class="tier-name">Standard</div>
+          <div class="tier-commission">40<span>%</span></div>
+          <div class="tier-desc">Recurring monthly commission</div>
+          <div class="tier-math">
+            1 plumber @ $297/mo<br>
+            <strong>You earn: $118.80/mo</strong>
+          </div>
+        </div>
+        <div class="tier popular">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-name">Pro</div>
+          <div class="tier-commission">60<span>%</span></div>
+          <div class="tier-desc">10+ active plumbers required</div>
+          <div class="tier-math">
+            10 plumbers @ $297/mo<br>
+            <strong>You earn: $1,782/mo</strong>
+          </div>
+        </div>
+        <div class="tier">
+          <div class="tier-badge" style="background: var(--red); color: white;">Super Affiliate</div>
+          <div class="tier-name">Super Affiliate</div>
+          <div class="tier-commission" style="color: var(--gold);">90<span>%</span></div>
+          <div class="tier-desc">50+ plumbers + case study</div>
+          <div class="tier-math" style="background: rgba(251, 191, 36, 0.1);">
+            50 plumbers @ $297/mo<br>
+            <strong style="color: var(--gold);">You earn: $13,365/mo</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="tools-section">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom: 48px;">Every Product Comes <span>Loaded</span></h2>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <h3>🎯 Done-For-You Funnels</h3>
+          <p>Every SnarkyAlma product includes pre-built funnels. No building from scratch. Just plug in your link and go.</p>
+        </div>
+        <div class="tool-card">
+          <h3>🎙️ Editable Product Demo</h3>
+          <p>Voice-over ready demo videos you can customize. Your voice, your brand, our expertise.</p>
+        </div>
+        <div class="tool-card">
+          <h3>🚀 Plug & Play Setup</h3>
+          <p>No frustrating configuration. One-page onboarding. Be selling in under 10 minutes.</p>
+        </div>
+        <div class="tool-card">
+          <h3>🤖 AI Avatar Video (Optional)</h3>
+          <p>Fully disclosed AI avatar starring YOU. You write the script, we produce the video. No camera needed.</p>
+        </div>
+        <div class="tool-card">
+          <h3>📱 Text-to-Discovery</h3>
+          <p>Your prospects text for a discovery call. Telecom, WhatsApp, or Telegram. We route them to you.</p>
+        </div>
+        <div class="tool-card">
+          <h3>🎁 Monthly Sweepstakes</h3>
+          <p>We run the giveaways. You get the leads. 5-star vacation packages, bonuses, and prizes — handled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWEEPSTAKES -->
+  <section class="sweepstakes">
+    <div class="container">
+      <h2>This Month's <span>Prize</span></h2>
+      <p>Every affiliate gets access to our monthly sweepstakes engine. Your leads enter to win. You collect the contact info.</p>
+      <div class="prize-box">
+        <h3>🏝️ 5-Star Bali Villa Escape</h3>
+        <p>7 nights in a luxury private villa | $5,000+ value</p>
+      </div>
+      <p style="color: #666; font-size: 14px;">Powered by The Young Villas · 4K video content included · No cost to you</p>
+    </div>
+  </section>
+
+  <!-- VERTICALS -->
+  <section class="tools-section" style="background: var(--gray);">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom: 16px;">Coming <span>Soon</span></h2>
+      <p style="text-align: center; color: #888; max-width: 600px; margin: 0 auto 48px;">
+        The SnarkyAlma platform works for any emergency home service. Same infrastructure. New markets.
+      </p>
+      <div class="tools-grid">
+        <div class="tool-card" style="border-left-color: #60a5fa;">
+          <h3>❄️ HVAC</h3>
+          <p>No heat in winter? AC dead in summer? Same AI dispatch, same affiliate commission.</p>
+        </div>
+        <div class="tool-card" style="border-left-color: #f59e0b;">
+          <h3>🔑 Emergency Locksmith</h3>
+          <p>Locked out at 2am? The AI answers, dispatches, and logs the lead. You get paid.</p>
+        </div>
+        <div class="tool-card" style="border-left-color: #ec4899;">
+          <h3>🚗 Auto Glass</h3>
+          <p>Cracked windshield? Shattered window? Emergency dispatch for mobile glass repair.</p>
+        </div>
+        <div class="tool-card" style="border-left-color: #8b5cf6;">
+          <h3>🚪 Garage Door Emergency</h3>
+          <p>Door won't open, car trapped inside? Priority dispatch to garage door techs.</p>
+        </div>
+      </div>
+      <p style="text-align: center; color: #666; font-size: 14px; margin-top: 32px;">
+        🚀 <strong>First-mover advantage:</strong> Lock in plumbing now. Get first access to new verticals as they launch.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="apply">
+    <div class="container">
+      <h2>Ready to <span>Show Me The Money?</span></h2>
+      <p style="color: #888; max-width: 500px; margin: 0 auto;">
+        GHL pays 40%. We pay up to 90%. And unlike GHL, you own the customer relationship.
+      </p>
+      <div class="cta-options">
+        <div class="cta-option">📱 Text <strong>MONEY</strong> to 813-491-3590</div>
+        <div class="cta-option">💬 WhatsApp: +1 813-491-3590</div>
+        <div class="cta-option">✈️ Telegram: @snarkyalma</div>
+      </div>
+      <a href="tel:+18134913590" class="cta-btn" style="margin-top: 40px;">Call Now — Let's Talk Numbers</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 SnarkyAlma · A ProPlum Network Company · Built on Telnyx + Cloudflare</p>
+    </div>
+  </footer>
+
+</body>
+</html>

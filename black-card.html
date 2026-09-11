@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Black Card — ProPlum Network</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f4d03f;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --gray: #1a1a1a;
+      --light: #f5f5f5;
+      --red: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(ellipse at center, #1a1a1a 0%, var(--black) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(212, 175, 55, 0.02) 10px,
+        rgba(212, 175, 55, 0.02) 20px
+      );
+      animation: shimmer 20s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-weight: 300;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--black);
+      padding: 18px 48px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+    }
+    .hero-note {
+      margin-top: 32px;
+      font-size: 13px;
+      color: #555;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+      margin: 0 auto;
+      max-width: 300px;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      padding: 120px 32px;
+      background: var(--dark);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-header h2 span {
+      color: var(--gold);
+    }
+    .section-header p {
+      color: #666;
+      font-size: 18px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .benefit-card {
+      background: var(--gray);
+      border: 1px solid #222;
+      padding: 40px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .benefit-card:hover {
+      border-color: #333;
+      transform: translateY(-4px);
+    }
+    .benefit-card:hover::before {
+      opacity: 1;
+    }
+    .benefit-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .benefit-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--light);
+    }
+    .benefit-card p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .benefit-highlight {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* COMMISSION */
+    .commission {
+      padding: 120px 32px;
+      text-align: center;
+      background: var(--black);
+    }
+    .commission-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(80px, 15vw, 160px);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .commission-label {
+      font-size: 24px;
+      color: #888;
+      margin-top: 16px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .commission-note {
+      margin-top: 32px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* QUALIFICATION */
+    .qualify {
+      padding: 120px 32px;
+      background: var(--dark);
+    }
+    .qualify-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .qualify-item {
+      text-align: center;
+      padding: 40px;
+      border: 1px solid #222;
+      border-radius: 8px;
+    }
+    .qualify-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .qualify-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .qualify-item p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta-final {
+      padding: 120px 32px;
+      text-align: center;
+      background: radial-gradient(ellipse at bottom, #1a1a1a 0%, var(--black) 70%);
+    }
+    .cta-final h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .cta-final p {
+      color: #888;
+      max-width: 500px;
+      margin: 0 auto 48px;
+    }
+    .cta-btn-outline {
+      display: inline-block;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      padding: 18px 48px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .cta-btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 48px 32px;
+      text-align: center;
+      border-top: 1px solid #111;
+      color: #333;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">By Invitation Only</div>
+      <h1>The Black Card</h1>
+      <p class="hero-sub">
+        The most exclusive affiliate tier in home services. 
+        90% recurring commission. Full white-label. Your empire, our engine.
+      </p>
+      <a href="#apply" class="hero-cta">Request Invitation</a>
+      <p class="hero-note">Powered by ProPlum Network · Built on Cloudflare + Telnyx</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <div class="section-header">
+        <h2>What You <span>Earn</span></h2>
+        <p>Every Black Card member gets the full ProPlum infrastructure at their fingertips.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>90% Recurring Commission</h3>
+          <p>The highest payout in the industry. No cap. No ceiling. <span class="benefit-highlight">$267.30 per plumber, every month.</span></p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏷️</div>
+          <h3>Full White-Label License</h3>
+          <p>Your brand. Your domain. Our infrastructure. Your customers never see ProPlum — they see <em>you</em>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">👤</div>
+          <h3>Dedicated Account Manager</h3>
+          <p>Direct Slack/WhatsApp line to ProPlum leadership. Not a ticket system. A real human.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Co-Branded Marketing Kit</h3>
+          <p>Custom videos, landing pages, email sequences, and AI avatar scripts — built for your brand.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚀</div>
+          <h3>Priority Vertical Access</h3>
+          <p>HVAC, locksmith, auto glass, garage door — <span class="benefit-highlight">new markets before anyone else.</span></p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✈️</div>
+          <h3>Annual Partner Retreat</h3>
+          <p>All-expenses-paid. Top performers only. Strategy, networking, and the ProPlum vision.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📞</div>
+          <h3>Direct Telnyx Rates</h3>
+          <p>Wholesale SMS and voice pricing passed through. You keep the margin on every call and text.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔧</div>
+          <h3>API Access</h3>
+          <p>Build custom integrations on our Cloudflare stack. Your developers, our infrastructure.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Exit Protection</h3>
+          <p>If ProPlum ever changes terms, <span class="benefit-highlight">you keep your customers.</span> Period. Written guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMMISSION -->
+  <section class="commission">
+    <div class="container">
+      <div class="commission-number">90%</div>
+      <div class="commission-label">Recurring Commission</div>
+      <p class="commission-note">
+        50 plumbers × $297/mo × 90% = <strong style="color: var(--gold);">$13,365/month</strong><br>
+        Paid monthly. No minimums. No hold periods.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUALIFICATION -->
+  <section class="qualify">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to <span>Qualify</span></h2>
+        <p>The Black Card is not for everyone. Three gates. Prove yourself.</p>
+      </div>
+      <div class="qualify-grid">
+        <div class="qualify-item">
+          <div class="qualify-number">50+</div>
+          <h3>Active Plumbers</h3>
+          <p>Paying customers on your affiliate link. Not trials. Not leads. Real revenue.</p>
+        </div>
+        <div class="qualify-item">
+          <div class="qualify-number">1</div>
+          <h3>Case Study</h3>
+          <p>Document your success. Numbers, screenshots, testimonials. Show your work.</p>
+        </div>
+        <div class="qualify-item">
+          <div class="qualify-number">1:1</div>
+          <h3>Leadership Interview</h3>
+          <p>30-minute call with ProPlum founding team. We want to know who we're partnering with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final" id="apply">
+    <div class="container">
+      <h2>Ready for Your Invitation?</h2>
+      <p>
+        Text <strong style="color: var(--gold);">BLACKCARD</strong> to 813-491-3590.<br>
+        Or WhatsApp. Or Telegram. We'll respond within 24 hours.
+      </p>
+      <a href="tel:+18134913590" class="cta-btn-outline">Call Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 ProPlum Network · The Black Card · Built on Cloudflare + Telnyx</p>
+    </div>
+  </footer>
+
+</body>
+</html>

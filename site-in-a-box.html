@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site in a Box — Everything Included. One Price.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lime: #a3e635;
+      --lime-dark: #84cc16;
+      --dark: #0a0a0a;
+      --gray: #1a1a1a;
+      --light: #f5f5f5;
+      --red: #ef4444;
+      --gold: #fbbf24;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      background: radial-gradient(ellipse at top, #1a1a2e 0%, var(--dark) 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--lime); }
+    .hero-sub {
+      font-size: 20px;
+      color: #888;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+    .hero-price {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--lime);
+      margin-bottom: 8px;
+    }
+    .hero-price span {
+      font-size: 20px;
+      color: #888;
+      font-weight: 400;
+    }
+    .hero-note {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--lime);
+      color: var(--dark);
+      padding: 18px 48px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: scale(1.05); }
+
+    /* WHAT'S INCLUDED */
+    .features {
+      padding: 80px 24px;
+      background: var(--gray);
+    }
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .section-title span { color: var(--lime); }
+    .section-sub {
+      text-align: center;
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .feature {
+      background: var(--dark);
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 32px;
+      transition: border-color 0.3s;
+    }
+    .feature:hover { border-color: var(--lime); }
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .feature h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature p {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .feature-tag {
+      display: inline-block;
+      background: rgba(163, 230, 53, 0.1);
+      color: var(--lime);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    /* NO DOUBLE PAYING */
+    .no-double {
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .no-double h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .no-double h2 span { color: var(--red); }
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+    .comparison-card {
+      background: var(--gray);
+      padding: 32px;
+      border-radius: 12px;
+      text-align: left;
+    }
+    .comparison-card.bad {
+      border: 1px solid #333;
+    }
+    .comparison-card.good {
+      border: 2px solid var(--lime);
+    }
+    .comparison-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .comparison-card.bad h3 { color: #888; }
+    .comparison-card.good h3 { color: var(--lime); }
+    .comparison-card ul {
+      list-style: none;
+    }
+    .comparison-card li {
+      padding: 8px 0;
+      color: #888;
+      font-size: 14px;
+      border-bottom: 1px solid #222;
+    }
+    .comparison-card li:last-child { border-bottom: none; }
+    .comparison-card.good li {
+      color: var(--light);
+    }
+    .strike {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    .check {
+      color: var(--lime);
+      margin-right: 8px;
+    }
+    .x {
+      color: var(--red);
+      margin-right: 8px;
+    }
+
+    /* TRANSPARENCY */
+    .transparency {
+      padding: 80px 24px;
+      background: var(--gray);
+      text-align: center;
+    }
+    .transparency h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .transparency h2 span { color: var(--gold); }
+    .transparency-box {
+      background: var(--dark);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 48px 32px;
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    .transparency-box h3 {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .transparency-box p {
+      color: #888;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .transparency-box .highlight {
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+    /* CUSTOM SITES */
+    .custom {
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .custom h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .custom h2 span { color: var(--lime); }
+    .custom-card {
+      background: var(--gray);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 40px 32px;
+      max-width: 600px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+    .custom-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .custom-card p {
+      color: #888;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .custom-price {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--lime);
+    }
+    .custom-price span {
+      font-size: 18px;
+      color: #888;
+      font-weight: 400;
+    }
+    .custom-note {
+      color: #666;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    /* SAM DEMO */
+    .sam-demo {
+      padding: 100px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, var(--dark) 100%);
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+    .sam-demo h2 {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .sam-demo h2 span { color: var(--lime); }
+    .sam-demo-sub {
+      font-size: 22px;
+      color: #888;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-style: italic;
+    }
+    .sam-phone {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--lime);
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+    .sam-phone-label {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+    .sam-script {
+      background: var(--gray);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: left;
+    }
+    .sam-script p {
+      color: #aaa;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .sam-script .role {
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+  /* CTA */
+    .cta-final {
+      padding: 100px 24px;
+      text-align: center;
+      background: radial-gradient(ellipse at bottom, #1a1a2e 0%, var(--dark) 70%);
+    }
+    .cta-final h2 {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta-final p {
+      color: #888;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .contact-options {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .contact-option {
+      background: var(--gray);
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .contact-option strong { color: var(--lime); }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Stop Paying Twice</div>
+      <h1>Site in a <span>Box</span></h1>
+      <p class="hero-sub">
+        One price. Everything included. No more separate bills for AI, hosting, SEO, and voice agents.
+        We build it. You dominate your market.
+      </p>
+      <div class="hero-price">$297<span>/month</span></div>
+      <p class="hero-note">Everything below. No hidden fees. No upsells. Cancel anytime.<br>Your only extra cost: inexpensive Chinese LLM usage + low Telnyx telecom.</p>
+      <a href="#get-started" class="cta-btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Everything <span>Included</span></h2>
+      <p class="section-sub">Stop piecing together tools. Get a complete system that works.</p>
+      
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <h3>Website + Hosting</h3>
+          <p>Custom landing page built on Cloudflare Pages. Fast, secure, globally distributed. No Netlify fees.</p>
+          <span class="feature-tag">Usually $29/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Virtual Receptionist</h3>
+          <p>Human-like voice agent answers calls 24/7. Books appointments. Captures leads. Speaks naturally, not robotic.</p>
+          <span class="feature-tag">Usually $200+/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <h3>SMS Dispatch System</h3>
+          <p>Text-to-lead capture. Emergency routing. Follow-up sequences. Built on Telnyx enterprise backbone.</p>
+          <span class="feature-tag">Usually $99/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔍</div>
+          <h3>SEO + AEO + GEO</h3>
+          <p>Rank on Google AND get recommended by ChatGPT. llms.txt, structured data, answer-first content.</p>
+          <span class="feature-tag">Usually $500+/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">📞</div>
+          <h3>Business Phone Number</h3>
+          <p>Local or toll-free number. Call forwarding. Voicemail transcription. Included.</p>
+          <span class="feature-tag">Usually $25/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Lead Tracking Dashboard</h3>
+          <p>See every call, text, and form submission. Track ROI. Know what's working.</p>
+          <span class="feature-tag">Usually $49/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <h3>AI Content Generation</h3>
+          <p>Blog posts, social content, email sequences. Powered by Kimi (Moonshot AI). No OpenAI fees.</p>
+          <span class="feature-tag">Usually $50/mo</span>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔗</div>
+          <h3>Affiliate Network Access</h3>
+          <p>Join SnarkyAlma's affiliate program. Earn 40-90% recurring on referrals. Your own escape hatch.</p>
+          <span class="feature-tag">Priceless</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NO DOUBLE PAYING -->
+  <section class="no-double">
+    <div class="container">
+      <h2>Stop Paying <span>Twice</span></h2>
+      <p style="color: #888; max-width: 600px; margin: 0 auto;">
+        Right now you're paying for AI tools, hosting, SEO services, and phone systems separately. 
+        That stops now.
+      </p>
+      
+      <div class="comparison">
+        <div class="comparison-card bad">
+          <h3>❌ The Old Way</h3>
+          <ul>
+            <li><span class="x">✗</span> Netlify hosting: $19/mo</li>
+            <li><span class="x">✗</span> OpenAI API: $50+/mo</li>
+            <li><span class="x">✗</span> SEO agency: $500+/mo</li>
+            <li><span class="x">✗</span> Phone system: $50/mo</li>
+            <li><span class="x">✗</span> Voice agent: $200+/mo</li>
+            <li><span class="x">✗</span> Content tools: $49/mo</li>
+            <li style="border-top: 2px solid #333; margin-top: 12px; padding-top: 12px; font-weight: 700;">
+              Total: <span class="strike">$868+/mo</span>
+            </li>
+            <li style="color: var(--red);">Plus your time managing it all</li>
+          </ul>
+        </div>
+        
+        <div class="comparison-card good">
+          <h3>✅ Site in a Box</h3>
+          <ul>
+            <li><span class="check">✓</span> Cloudflare hosting: Included</li>
+            <li><span class="check">✓</span> Kimi AI (Moonshot): Included</li>
+            <li><span class="check">✓</span> SEO/AEO/GEO: Included</li>
+            <li><span class="check">✓</span> Telnyx phone + SMS: Included</li>
+            <li><span class="check">✓</span> AI voice receptionist: Included</li>
+            <li><span class="check">✓</span> Content generation: Included</li>
+            <li style="border-top: 2px solid var(--lime); margin-top: 12px; padding-top: 12px; font-weight: 700; color: var(--lime);">
+              Platform: $297/mo
+            </li>
+            <li style="color: var(--lime);">We manage everything</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCY -->
+  <section class="transparency">
+    <div class="container">
+      <h2>Radical <span>Transparency</span></h2>
+      <p style="color: #888; max-width: 600px; margin: 0 auto;">
+        We don't hide costs. Here's exactly what you pay and why.
+      </p>
+      
+      <div class="transparency-box">
+        <h3>📊 Your Only Recurring Costs</h3>
+        <p>
+          The <span class="highlight">$297/month</span> is the platform fee. It covers everything above — hosting, AI, SEO, phone, dashboard, content.
+        </p>
+        <p>
+          Your <strong>only</strong> additional costs are:
+        </p>
+        <p>
+          1. <span class="highlight">Chinese LLM API fees</span> — We use Moonshot (Kimi), a leading Chinese AI. It's <strong>inexpensive</strong> and high quality. You pay only for what you use — typically $5-30/month for most businesses.
+        </p>
+        <p>
+          2. <span class="highlight">Telnyx telecom costs</span> — Super low rates for unlimited users. SMS at pennies per message. Voice at wholesale pricing. You pay Telnyx directly; we don't mark it up.
+        </p>
+        <p style="margin-top: 24px; font-size: 14px; color: #666;">
+          No hidden fees. No surprise bills. No "usage overages." Just honest pricing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM SITES -->
+  <section class="custom">
+    <div class="container">
+      <h2>Need Something <span>Custom?</span></h2>
+      <p style="color: #888; max-width: 600px; margin: 0 auto;">
+        The Site in a Box covers 90% of businesses. If you need something bespoke, we do that too.
+      </p>
+      
+      <div class="custom-card">
+        <h3>🎨 Custom Site Development</h3>
+        <p>
+          Unique design. Custom functionality. Special integrations. Whatever your business needs that the standard box doesn't cover.
+        </p>
+        <div class="custom-price">$300<span>/hour</span></div>
+        <p class="custom-note">
+          Upfront pricing. Quoted before we start. No surprises. No scope creep.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAM DEMO -->
+  <section class="sam-demo">
+    <div class="container">
+      <h2>Try <span>Sam</span> Yourself</h2>
+      <p class="sam-demo-sub">
+        "Fake a plumbing emergency and discover why Plumber's Helper is the best emergency plumbing platform in America today!"
+      </p>
+      <div class="sam-phone">813-491-3590</div>
+      <p class="sam-phone-label">Call now — Sam answers 24/7</p>
+      
+      <div class="sam-script">
+        <p><span class="role">You:</span> "Hi, I have a burst pipe in my basement and water is everywhere!"</p>
+        <p><span class="role">Sam:</span> "I'm sorry to hear that — a burst pipe is definitely an emergency. I'm Sam, your emergency plumbing assistant. Can I get your address so I can dispatch the nearest available plumber immediately?"</p>
+        <p><span class="role">You:</span> "123 Main Street..."</p>
+        <p><span class="role">Sam:</span> "Got it. A licensed plumber is 4 minutes away. I'm sending them now plus a text confirmation to your phone. Is this the best number to reach you?"</p>
+      </div>
+      
+      <a href="tel:+18134913590" class="cta-btn">Call Sam Now</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-final" id="get-started">
+    <div class="container">
+      <h2>Dominate Your Market</h2>
+      <p>
+        Get recommended by ChatGPT. Rank on Google. Answer every call — even at 3am. 
+        One price. No surprises.
+      </p>
+      <a href="tel:+18134913590" class="cta-btn">Call 813-491-3590</a>
+      <div class="contact-options" style="margin-top: 32px;">
+        <div class="contact-option">Text <strong>SITE</strong> to 813-491-3590</div>
+        <div class="contact-option">WhatsApp available</div>
+        <div class="contact-option">Telegram: @snarkyalma</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 SnarkyAlma · A ProPlum Network Company · Built on Cloudflare + Telnyx + Moonshot AI</p>
+    </div>
+  </footer>
+
+</body>
+</html>

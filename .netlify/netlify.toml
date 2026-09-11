@@ -12,7 +12,6 @@ node_bundler = "esbuild"
 [build]
 publish = "/root/.openclaw/workspace/snarkyalma"
 publishOrigin = "default"
-base = "/root/.openclaw/workspace/snarkyalma"
 functions = "/root/.openclaw/workspace/snarkyalma/netlify/functions"
 
 [build.environment]
