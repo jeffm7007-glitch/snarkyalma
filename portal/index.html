@@ -338,6 +338,53 @@
     }
     .yt-placeholder p { font-size: 0.85rem; }
     .yt-placeholder .sub { font-size: 0.75rem; opacity: 0.6; }
+    /* TOKEN MATH */
+    .token-section {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .token-section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .token-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .token-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #8D9BAE;
+      padding: 0.5rem 0;
+    }
+    .token-row .val {
+      font-weight: 700;
+      color: #fff;
+    }
+    .token-row .val.highlight {
+      color: #FF6B35;
+    }
+    .token-divider {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 0.5rem 0;
+    }
+    .token-note {
+      font-size: 0.75rem;
+      color: #5E6D82;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+      text-align: center;
+      font-style: italic;
+    }
     /* EARNINGS EXAMPLE */
     .earnings-example {
       width: 100%;
@@ -540,6 +587,40 @@
     <p class="earnings-note" id="ex-note">No white-label sales required. Just 10 plumbers.</p>
   </div>
 
+  <!-- TOKEN MATH -->
+  <div class="token-section">
+    <h2 id="token-title">The Token Model (Why You Still Win)</h2>
+    <div class="token-box">
+      <div class="token-row">
+        <span id="tok-line1">Customer buys Individual License</span>
+        <span class="val" id="tok-val1">$499/mo</span>
+      </div>
+      <div class="token-row">
+        <span id="tok-line2">You earn 40% recurring</span>
+        <span class="val highlight" id="tok-val2">$199/mo</span>
+      </div>
+      <div class="token-divider"></div>
+      <div class="token-row">
+        <span id="tok-line3">Customer buys token pack (AI calls, leads)</span>
+        <span class="val" id="tok-val3">~$300/mo avg</span>
+      </div>
+      <div class="token-row">
+        <span id="tok-line4">Token commission to you</span>
+        <span class="val" id="tok-val4">$0 (we keep 100%)</span>
+      </div>
+      <div class="token-divider"></div>
+      <div class="token-row">
+        <span id="tok-line5">Customer total spend</span>
+        <span class="val" id="tok-val5">~$799/mo</span>
+      </div>
+      <div class="token-row">
+        <span id="tok-line6">Your total recurring</span>
+        <span class="val highlight" id="tok-val6">$199/mo (25% of spend)</span>
+      </div>
+    </div>
+    <p class="token-note" id="tok-note">Tokens are our margin. That's how we afford to pay you 40-60% on the base license. You get the big recurring cut. We get the usage upside. Fair trade.</p>
+  </div>
+
   <!-- ECOSYSTEM -->
   <div class="ecosystem">
     <a href="https://proplumnetwork.com">ProPlum Network</a>·
@@ -652,6 +733,20 @@
         exTotalLabel: "Monthly recurring income",
         exTotal: "$1,996/mo",
         exNote: "No white-label sales required. Just 10 plumbers.",
+        tokenTitle: "The Token Model (Why You Still Win)",
+        tokLine1: "Customer buys Individual License",
+        tokVal1: "$499/mo",
+        tokLine2: "You earn 40% recurring",
+        tokVal2: "$199/mo",
+        tokLine3: "Customer buys token pack (AI calls, leads)",
+        tokVal3: "~$300/mo avg",
+        tokLine4: "Token commission to you",
+        tokVal4: "$0 (we keep 100%)",
+        tokLine5: "Customer total spend",
+        tokVal5: "~$799/mo",
+        tokLine6: "Your total recurring",
+        tokVal6: "$199/mo (25% of spend)",
+        tokNote: "Tokens are our margin. That's how we afford to pay you 40-60% on the base license. You get the big recurring cut. We get the usage upside. Fair trade.",
         launchBtn: "Launch Affiliate Portal →",
         newPartner: "New partner?",
         applyLink: "Apply to join →"
@@ -710,6 +805,20 @@
         exTotalLabel: "Ingreso mensual recurrente",
         exTotal: "$1,996/mes",
         exNote: "No se requieren ventas white-label. Solo 10 plomeros.",
+        tokenTitle: "El Modelo de Tokens (Por Qué Igual Ganas)",
+        tokLine1: "Cliente compra Licencia Individual",
+        tokVal1: "$499/mes",
+        tokLine2: "Tú ganas 40% recurrente",
+        tokVal2: "$199/mes",
+        tokLine3: "Cliente compra paquete de tokens (llamadas IA, leads)",
+        tokVal3: "~$300/mes promedio",
+        tokLine4: "Comisión de tokens para ti",
+        tokVal4: "$0 (nosotros lo retenemos)",
+        tokLine5: "Gasto total del cliente",
+        tokVal5: "~$799/mes",
+        tokLine6: "Tu total recurrente",
+        tokVal6: "$199/mes (25% del gasto)",
+        tokNote: "Los tokens son nuestro margen. Así podemos pagarte 40-60% en la licencia base. Tú obtienes el gran corte recurrente. Nosotros, el upside por uso. Intercambio justo.",
         launchBtn: "Abrir Portal de Afiliados →",
         newPartner: "¿Nuevo socio?",
         applyLink: "Solicitar unirse →"
@@ -771,6 +880,20 @@
       document.getElementById('ex-total-label').textContent = t.exTotalLabel;
       document.getElementById('ex-total').textContent = t.exTotal;
       document.getElementById('ex-note').textContent = t.exNote;
+      document.getElementById('token-title').textContent = t.tokenTitle;
+      document.getElementById('tok-line1').textContent = t.tokLine1;
+      document.getElementById('tok-val1').textContent = t.tokVal1;
+      document.getElementById('tok-line2').textContent = t.tokLine2;
+      document.getElementById('tok-val2').textContent = t.tokVal2;
+      document.getElementById('tok-line3').textContent = t.tokLine3;
+      document.getElementById('tok-val3').textContent = t.tokVal3;
+      document.getElementById('tok-line4').textContent = t.tokLine4;
+      document.getElementById('tok-val4').textContent = t.tokVal4;
+      document.getElementById('tok-line5').textContent = t.tokLine5;
+      document.getElementById('tok-val5').textContent = t.tokVal5;
+      document.getElementById('tok-line6').textContent = t.tokLine6;
+      document.getElementById('tok-val6').textContent = t.tokVal6;
+      document.getElementById('tok-note').textContent = t.tokNote;
       document.getElementById('launch-btn').textContent = t.launchBtn;
       document.getElementById('new-partner').textContent = t.newPartner;
       document.getElementById('apply-link').textContent = t.applyLink;
