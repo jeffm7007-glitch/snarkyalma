@@ -251,6 +251,50 @@
     .ecosystem a:hover {
       color: #FF6B35;
     }
+    .trailer-section {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .trailer-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #FF6B35;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .trailer-section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .trailer-placeholder {
+      background: rgba(255,255,255,0.03);
+      border: 2px dashed rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: #5E6D82;
+      min-height: 200px;
+    }
+    .trailer-placeholder .play-icon {
+      font-size: 2.5rem;
+      opacity: 0.5;
+    }
+    .trailer-placeholder p {
+      font-size: 0.9rem;
+    }
+    .trailer-placeholder .sub {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
     @media (max-width: 700px) {
       .videos-row { flex-direction: column; align-items: center; }
       .video-card { max-width: 100%; width: 100%; }
@@ -340,6 +384,16 @@
     <a href="https://snarkyalma.com">SnarkyAlma</a>
   </div>
 
+  <div class="trailer-section">
+    <div class="trailer-label" id="trailer-label">🎬 Ecosystem Trailer</div>
+    <h2 id="trailer-title">See the Full ProPlum Network in Action</h2>
+    <div class="trailer-placeholder" id="trailer-placeholder">
+      <div class="play-icon">▶️</div>
+      <p id="trailer-text">Coming soon — full ecosystem overview</p>
+      <p class="sub" id="trailer-sub">Drop your YouTube link and I'll embed it here instantly</p>
+    </div>
+  </div>
+
   <script>
     const translations = {
       en: {
@@ -357,6 +411,10 @@
         crmLabel: "🛠️ Built-In Flexibility",
         crmText: "Run on our native CRM platform <em>or</em> plug into your existing GoHighLevel account.",
         crmSub: "Your pipeline. Your choice. No migration headaches.",
+        trailerLabel: "🎬 Ecosystem Trailer",
+        trailerTitle: "See the Full ProPlum Network in Action",
+        trailerText: "Coming soon — full ecosystem overview",
+        trailerSub: "Drop your YouTube link and I'll embed it here instantly",
         launchBtn: "Launch Affiliate Portal →",
         newPartner: "New partner?",
         applyLink: "Apply to join →"
@@ -376,6 +434,10 @@
         crmLabel: "🛠️ Flexibilidad Integrada",
         crmText: "Funciona en nuestra plataforma CRM nativa <em>o</em> conéctate a tu cuenta GoHighLevel existente.",
         crmSub: "Tu pipeline. Tu elección. Sin dolores de migración.",
+        trailerLabel: "🎬 Tráiler del Ecosistema",
+        trailerTitle: "Mira la Red ProPlum Completa en Acción",
+        trailerText: "Próximamente — visión general del ecosistema",
+        trailerSub: "Envía tu link de YouTube y lo insertaré aquí al instante",
         launchBtn: "Abrir Portal de Afiliados →",
         newPartner: "¿Nuevo socio?",
         applyLink: "Solicitar unirse →"
@@ -401,6 +463,11 @@
       document.getElementById('launch-btn').textContent = t.launchBtn;
       document.getElementById('new-partner').textContent = t.newPartner;
       document.getElementById('apply-link').textContent = t.applyLink;
+
+      document.getElementById('trailer-label').textContent = t.trailerLabel;
+      document.getElementById('trailer-title').textContent = t.trailerTitle;
+      document.getElementById('trailer-text').textContent = t.trailerText;
+      document.getElementById('trailer-sub').textContent = t.trailerSub;
 
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
