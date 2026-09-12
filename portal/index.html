@@ -338,6 +338,56 @@
     }
     .yt-placeholder p { font-size: 0.85rem; }
     .yt-placeholder .sub { font-size: 0.75rem; opacity: 0.6; }
+    /* EARNINGS EXAMPLE */
+    .earnings-example {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .earnings-example h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .earnings-math {
+      background: rgba(255,107,53,0.06);
+      border: 1px solid rgba(255,107,53,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .earnings-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #8D9BAE;
+    }
+    .earnings-line .val {
+      font-weight: 700;
+      color: #fff;
+    }
+    .earnings-line.total {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 0.75rem;
+      margin-top: 0.25rem;
+      font-size: 1rem;
+      color: #FF6B35;
+    }
+    .earnings-line.total .val {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+    .earnings-note {
+      font-size: 0.75rem;
+      color: #5E6D82;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
     /* BOTTOM VIDEOS */
     .bottom-videos {
       width: 100%;
@@ -470,6 +520,26 @@
     <span id="new-partner">New partner?</span> <a href="https://mainly-invitation-identifies-hop.trycloudflare.com/register" id="apply-link">Apply to join →</a>
   </p>
 
+  <!-- EARNINGS EXAMPLE -->
+  <div class="earnings-example">
+    <h2 id="example-title">Micro-Influencer Math</h2>
+    <div class="earnings-math">
+      <div class="earnings-line">
+        <span id="ex-line1">10 Individual Licenses ($499/mo)</span>
+        <span class="val" id="ex-val1">$1,996/mo</span>
+      </div>
+      <div class="earnings-line">
+        <span id="ex-line2">Your cut at 40% recurring</span>
+        <span class="val" id="ex-val2">40%</span>
+      </div>
+      <div class="earnings-line total">
+        <span id="ex-total-label">Monthly recurring income</span>
+        <span class="val" id="ex-total">$1,996/mo</span>
+      </div>
+    </div>
+    <p class="earnings-note" id="ex-note">No white-label sales required. Just 10 plumbers.</p>
+  </div>
+
   <!-- ECOSYSTEM -->
   <div class="ecosystem">
     <a href="https://proplumnetwork.com">ProPlum Network</a>·
@@ -574,6 +644,14 @@
         tier3Period: "/mo",
         tier3Comm: "<strong>60%</strong> recurring",
         tier3Note: "Your brand, our infrastructure, their customers",
+        exampleTitle: "Micro-Influencer Math",
+        exLine1: "10 Individual Licenses ($499/mo)",
+        exVal1: "$1,996/mo",
+        exLine2: "Your cut at 40% recurring",
+        exVal2: "40%",
+        exTotalLabel: "Monthly recurring income",
+        exTotal: "$1,996/mo",
+        exNote: "No white-label sales required. Just 10 plumbers.",
         launchBtn: "Launch Affiliate Portal →",
         newPartner: "New partner?",
         applyLink: "Apply to join →"
@@ -624,6 +702,14 @@
         tier3Period: "/mes",
         tier3Comm: "<strong>60%</strong> recurrente",
         tier3Note: "Tu marca, nuestra infraestructura, sus clientes",
+        exampleTitle: "Matemáticas para Micro-Influencers",
+        exLine1: "10 Licencias Individuales ($499/mes)",
+        exVal1: "$1,996/mes",
+        exLine2: "Tu corte al 40% recurrente",
+        exVal2: "40%",
+        exTotalLabel: "Ingreso mensual recurrente",
+        exTotal: "$1,996/mes",
+        exNote: "No se requieren ventas white-label. Solo 10 plomeros.",
         launchBtn: "Abrir Portal de Afiliados →",
         newPartner: "¿Nuevo socio?",
         applyLink: "Solicitar unirse →"
@@ -677,6 +763,14 @@
       document.getElementById('tier3-period').textContent = t.tier3Period;
       document.getElementById('tier3-comm').innerHTML = t.tier3Comm;
       document.getElementById('tier3-note').textContent = t.tier3Note;
+      document.getElementById('example-title').textContent = t.exampleTitle;
+      document.getElementById('ex-line1').textContent = t.exLine1;
+      document.getElementById('ex-val1').textContent = t.exVal1;
+      document.getElementById('ex-line2').textContent = t.exLine2;
+      document.getElementById('ex-val2').textContent = t.exVal2;
+      document.getElementById('ex-total-label').textContent = t.exTotalLabel;
+      document.getElementById('ex-total').textContent = t.exTotal;
+      document.getElementById('ex-note').textContent = t.exNote;
       document.getElementById('launch-btn').textContent = t.launchBtn;
       document.getElementById('new-partner').textContent = t.newPartner;
       document.getElementById('apply-link').textContent = t.applyLink;
