@@ -21,7 +21,7 @@
     }
     .header-bar {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -64,37 +64,35 @@
     }
     .video-section {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       margin-bottom: 2rem;
     }
     .video-section h1 {
       font-size: 1.5rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       text-align: center;
       color: #fff;
     }
     .videos-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
     }
     .video-card {
-      flex: 1;
-      min-width: 280px;
-      max-width: 430px;
+      display: flex;
+      flex-direction: column;
     }
     .video-label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: #5E6D82;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       margin-bottom: 0.5rem;
       text-align: center;
     }
-    .video-wrapper {
+    .yt-embed {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
@@ -103,13 +101,40 @@
       border: 1px solid rgba(255,255,255,0.08);
       background: #0a0f1a;
     }
-    .video-wrapper video {
+    .yt-embed iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      border: 0;
+    }
+    .yt-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #5E6D82;
+      text-align: center;
+      padding: 1rem;
+    }
+    .yt-placeholder .play-icon {
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+    .yt-placeholder p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+    .yt-placeholder .sub {
+      font-size: 0.7rem;
+      opacity: 0.6;
     }
     .logo {
       font-size: 2.75rem;
@@ -251,53 +276,9 @@
     .ecosystem a:hover {
       color: #FF6B35;
     }
-    .trailer-section {
-      width: 100%;
-      max-width: 700px;
-      margin-top: 2.5rem;
-      text-align: center;
-    }
-    .trailer-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #FF6B35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
-    }
-    .trailer-section h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    .trailer-placeholder {
-      background: rgba(255,255,255,0.03);
-      border: 2px dashed rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 3rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      color: #5E6D82;
-      min-height: 200px;
-    }
-    .trailer-placeholder .play-icon {
-      font-size: 2.5rem;
-      opacity: 0.5;
-    }
-    .trailer-placeholder p {
-      font-size: 0.9rem;
-    }
-    .trailer-placeholder .sub {
-      font-size: 0.75rem;
-      opacity: 0.7;
-    }
-    @media (max-width: 700px) {
-      .videos-row { flex-direction: column; align-items: center; }
-      .video-card { max-width: 100%; width: 100%; }
+    @media (max-width: 900px) {
+      .videos-row { grid-template-columns: 1fr; }
+      .video-card { max-width: 500px; margin: 0 auto; width: 100%; }
       .logo { font-size: 2rem; }
       .video-section h1 { font-size: 1.2rem; }
       .stats { gap: 1.5rem; }
@@ -317,22 +298,34 @@
   <div class="video-section">
     <h1 id="video-title">The Next Big Thing &amp; How It Works</h1>
     <div class="videos-row">
-      <div class="video-card" id="card-en">
-        <div class="video-label">English</div>
-        <div class="video-wrapper">
-          <video controls playsinline poster="">
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+      <div class="video-card">
+        <div class="video-label" id="label-en">English Explainer</div>
+        <div class="yt-embed" id="embed-en">
+          <div class="yt-placeholder">
+            <div class="play-icon">▶️</div>
+            <p id="placeholder-en">English explainer video</p>
+            <p class="sub">YouTube link coming soon</p>
+          </div>
         </div>
       </div>
-      <div class="video-card" id="card-es">
-        <div class="video-label">Español</div>
-        <div class="video-wrapper">
-          <video controls playsinline poster="">
-            <source src="video-es.mp4" type="video/mp4">
-            Tu navegador no soporta el tag de video.
-          </video>
+      <div class="video-card">
+        <div class="video-label" id="label-es">Spanish Explainer</div>
+        <div class="yt-embed" id="embed-es">
+          <div class="yt-placeholder">
+            <div class="play-icon">▶️</div>
+            <p id="placeholder-es">Spanish explainer video</p>
+            <p class="sub">YouTube link coming soon</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-label" id="label-trailer">Ecosystem Trailer</div>
+        <div class="yt-embed" id="embed-trailer">
+          <div class="yt-placeholder">
+            <div class="play-icon">▶️</div>
+            <p id="placeholder-trailer">ProPlum Network ecosystem overview</p>
+            <p class="sub">YouTube link coming soon</p>
+          </div>
         </div>
       </div>
     </div>
@@ -384,17 +377,14 @@
     <a href="https://snarkyalma.com">SnarkyAlma</a>
   </div>
 
-  <div class="trailer-section">
-    <div class="trailer-label" id="trailer-label">🎬 Ecosystem Trailer</div>
-    <h2 id="trailer-title">See the Full ProPlum Network in Action</h2>
-    <div class="trailer-placeholder" id="trailer-placeholder">
-      <div class="play-icon">▶️</div>
-      <p id="trailer-text">Coming soon — full ecosystem overview</p>
-      <p class="sub" id="trailer-sub">Drop your YouTube link and I'll embed it here instantly</p>
-    </div>
-  </div>
-
   <script>
+    // YouTube embed helper — swap placeholder for iframe when links arrive
+    function embedYouTube(containerId, videoId) {
+      const container = document.getElementById(containerId);
+      if (!container || !videoId) return;
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+
     const translations = {
       en: {
         videoTitle: "The Next Big Thing & How It Works",
@@ -411,10 +401,12 @@
         crmLabel: "🛠️ Built-In Flexibility",
         crmText: "Run on our native CRM platform <em>or</em> plug into your existing GoHighLevel account.",
         crmSub: "Your pipeline. Your choice. No migration headaches.",
-        trailerLabel: "🎬 Ecosystem Trailer",
-        trailerTitle: "See the Full ProPlum Network in Action",
-        trailerText: "Coming soon — full ecosystem overview",
-        trailerSub: "Drop your YouTube link and I'll embed it here instantly",
+        labelEn: "English Explainer",
+        labelEs: "Spanish Explainer",
+        labelTrailer: "Ecosystem Trailer",
+        placeholderEn: "English explainer video",
+        placeholderEs: "Spanish explainer video",
+        placeholderTrailer: "ProPlum Network ecosystem overview",
         launchBtn: "Launch Affiliate Portal →",
         newPartner: "New partner?",
         applyLink: "Apply to join →"
@@ -434,10 +426,12 @@
         crmLabel: "🛠️ Flexibilidad Integrada",
         crmText: "Funciona en nuestra plataforma CRM nativa <em>o</em> conéctate a tu cuenta GoHighLevel existente.",
         crmSub: "Tu pipeline. Tu elección. Sin dolores de migración.",
-        trailerLabel: "🎬 Tráiler del Ecosistema",
-        trailerTitle: "Mira la Red ProPlum Completa en Acción",
-        trailerText: "Próximamente — visión general del ecosistema",
-        trailerSub: "Envía tu link de YouTube y lo insertaré aquí al instante",
+        labelEn: "Explicación en Inglés",
+        labelEs: "Explicación en Español",
+        labelTrailer: "Tráiler del Ecosistema",
+        placeholderEn: "Video explicativo en inglés",
+        placeholderEs: "Video explicativo en español",
+        placeholderTrailer: "Visión general del ecosistema ProPlum",
         launchBtn: "Abrir Portal de Afiliados →",
         newPartner: "¿Nuevo socio?",
         applyLink: "Solicitar unirse →"
@@ -463,11 +457,12 @@
       document.getElementById('launch-btn').textContent = t.launchBtn;
       document.getElementById('new-partner').textContent = t.newPartner;
       document.getElementById('apply-link').textContent = t.applyLink;
-
-      document.getElementById('trailer-label').textContent = t.trailerLabel;
-      document.getElementById('trailer-title').textContent = t.trailerTitle;
-      document.getElementById('trailer-text').textContent = t.trailerText;
-      document.getElementById('trailer-sub').textContent = t.trailerSub;
+      document.getElementById('label-en').textContent = t.labelEn;
+      document.getElementById('label-es').textContent = t.labelEs;
+      document.getElementById('label-trailer').textContent = t.labelTrailer;
+      document.getElementById('placeholder-en').textContent = t.placeholderEn;
+      document.getElementById('placeholder-es').textContent = t.placeholderEs;
+      document.getElementById('placeholder-trailer').textContent = t.placeholderTrailer;
 
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
