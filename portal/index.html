@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plumbers Helper AI — Affiliate Network</title>
-  <meta name="description" content="Join the Plumbers Helper AI Affiliate Network. Track referrals, earn commissions, and grow your home service business. Part of the ProPlum Network ecosystem.">
+  <meta name="description" content="Join the Plumbers Helper AI Affiliate Network. Earn commissions referring plumbing contractors to the #1 emergency leads network in America.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -62,29 +62,81 @@
       border-color: rgba(255,107,53,0.4);
       color: #FF6B35;
     }
-    .logo {
-      font-size: 2.75rem;
-      font-weight: 900;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #FF6B35, #FF8C5A);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* EARNINGS HERO */
+    .earnings-hero {
       text-align: center;
+      max-width: 700px;
+      margin: 1rem 0 2rem;
     }
-    .tagline {
-      color: #8D9BAE;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      max-width: 520px;
-      text-align: center;
-      line-height: 1.5;
-    }
-    .fine-print {
-      color: #5E6D82;
+    .earnings-hero .eyebrow {
       font-size: 0.75rem;
-      margin-bottom: 2rem;
+      font-weight: 600;
+      color: #FF6B35;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .earnings-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .earnings-hero h1 .highlight {
+      color: #FF6B35;
+    }
+    .earnings-hero .sub {
+      font-size: 1.1rem;
+      color: #8D9BAE;
+      line-height: 1.5;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+    /* COMMISSION BOX */
+    .commission-box {
+      background: rgba(255,107,53,0.08);
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: 16px;
+      padding: 2rem;
       text-align: center;
+      max-width: 520px;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    .commission-box .big-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #FF6B35;
+      line-height: 1;
+    }
+    .commission-box .big-label {
+      font-size: 0.85rem;
+      color: #8D9BAE;
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .commission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      text-align: left;
+    }
+    .commission-item {
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .commission-item .num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .commission-item .desc {
+      font-size: 0.75rem;
+      color: #8D9BAE;
+      margin-top: 0.25rem;
+      line-height: 1.4;
     }
     .divider {
       width: 60px;
@@ -93,74 +145,94 @@
       margin: 1.5rem auto;
       border-radius: 2px;
     }
-    .stats {
+    /* HOW IT WORKS */
+    .how-it-works {
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    .how-it-works h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .step-num {
+      background: rgba(255,107,53,0.15);
+      color: #FF6B35;
+      font-size: 0.8rem;
+      font-weight: 800;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .step-text {
+      font-size: 0.9rem;
+      color: #8D9BAE;
+      line-height: 1.5;
+    }
+    .step-text strong {
+      color: #fff;
+    }
+    /* PRODUCT BRIEF */
+    .product-brief {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .product-brief h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .product-brief p {
+      font-size: 0.9rem;
+      color: #8D9BAE;
+      line-height: 1.6;
+    }
+    .product-brief .stats-row {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin: 1rem 0 2rem;
+      margin: 1.25rem 0;
       flex-wrap: wrap;
     }
-    .stat {
+    .product-brief .stat-mini {
       text-align: center;
     }
-    .stat-number {
-      font-size: 1.75rem;
+    .product-brief .stat-mini .n {
+      font-size: 1.5rem;
       font-weight: 800;
       color: #FF6B35;
     }
-    .stat-label {
-      font-size: 0.7rem;
+    .product-brief .stat-mini .l {
+      font-size: 0.65rem;
       color: #5E6D82;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin: 1rem 0 1.5rem;
-      max-width: 600px;
-    }
-    .feature {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      color: #8D9BAE;
-    }
-    .crm-choice {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      margin: 0.5rem 0 2rem;
-      max-width: 500px;
-    }
-    .crm-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #FF6B35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-    .crm-text {
-      font-size: 1rem;
-      color: #fff;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .crm-text em {
-      color: #FF6B35;
-      font-style: normal;
-    }
-    .crm-sub {
-      font-size: 0.8rem;
-      color: #5E6D82;
-    }
+    /* CTA */
     .launch-btn {
       display: inline-block;
       background: #FF6B35;
@@ -171,7 +243,7 @@
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
     .launch-btn:hover {
       background: #E55A2B;
@@ -181,18 +253,22 @@
       color: #5E6D82;
       font-size: 0.85rem;
       margin-top: 0.5rem;
+      margin-bottom: 2rem;
     }
     .secondary a {
       color: #FF6B35;
       text-decoration: none;
     }
+    /* ECOSYSTEM */
     .ecosystem {
-      margin-top: 2.5rem;
+      margin-top: 1rem;
       padding-top: 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.06);
       color: #5E6D82;
       font-size: 0.8rem;
       text-align: center;
+      width: 100%;
+      max-width: 900px;
     }
     .ecosystem a {
       color: #5E6D82;
@@ -202,7 +278,7 @@
     .ecosystem a:hover {
       color: #FF6B35;
     }
-    /* TRAILER under ecosystem */
+    /* TRAILER */
     .trailer-section {
       width: 100%;
       max-width: 700px;
@@ -223,6 +299,7 @@
       margin-bottom: 0.75rem;
       color: #fff;
     }
+    /* YT EMBED */
     .yt-embed {
       position: relative;
       padding-bottom: 56.25%;
@@ -259,14 +336,9 @@
       font-size: 2rem;
       opacity: 0.4;
     }
-    .yt-placeholder p {
-      font-size: 0.85rem;
-    }
-    .yt-placeholder .sub {
-      font-size: 0.75rem;
-      opacity: 0.6;
-    }
-    /* BOTTOM videos */
+    .yt-placeholder p { font-size: 0.85rem; }
+    .yt-placeholder .sub { font-size: 0.75rem; opacity: 0.6; }
+    /* BOTTOM VIDEOS */
     .bottom-videos {
       width: 100%;
       max-width: 900px;
@@ -300,62 +372,105 @@
       text-align: center;
     }
     @media (max-width: 700px) {
+      .earnings-hero h1 { font-size: 1.9rem; }
+      .commission-box .big-number { font-size: 2.5rem; }
+      .commission-grid { grid-template-columns: 1fr; }
       .videos-row { grid-template-columns: 1fr; }
       .video-card { max-width: 500px; margin: 0 auto; width: 100%; }
-      .logo { font-size: 2rem; }
-      .stats { gap: 1.5rem; }
       .header-bar { justify-content: center; }
     }
   </style>
 </head>
 <body>
   <div class="header-bar">
-    <div class="badge" id="badge">Part of the ProPlum Network ecosystem of companies</div>
+    <div class="badge" id="badge">Part of the ProPlum Network ecosystem</div>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
       <button class="lang-btn" onclick="setLang('es')" id="btn-es">Español</button>
     </div>
   </div>
 
-  <h1 class="logo">Plumbers Helper AI</h1>
-  <p class="tagline" id="tagline">Number #1 GPS Emergency Plumbing Leads Network in America</p>
-  <p class="fine-print" id="fine-print">Part of the ProPlum Network ecosystem of companies</p>
+  <!-- EARNINGS HERO -->
+  <div class="earnings-hero">
+    <div class="eyebrow" id="eyebrow">Affiliate Partner Program</div>
+    <h1 id="hero-headline">Earn <span class="highlight">90% Commission</span> on Every Referral</h1>
+    <p class="sub" id="hero-sub">Refer plumbing contractors to the #1 emergency leads network in America. No upfront cost. No risk. Just recurring revenue.</p>
+  </div>
+
+  <!-- COMMISSION BREAKDOWN -->
+  <div class="commission-box">
+    <div class="big-number" id="big-number">$450</div>
+    <div class="big-label" id="big-label">per $500 license you sell</div>
+    <div class="commission-grid">
+      <div class="commission-item">
+        <div class="num" id="comm1-num">90%</div>
+        <div class="desc" id="comm1-desc">Commission rate on every sale</div>
+      </div>
+      <div class="commission-item">
+        <div class="num" id="comm2-num">$200</div>
+        <div class="desc" id="comm2-desc">Recurring monthly per active license</div>
+      </div>
+      <div class="commission-item">
+        <div class="num" id="comm3-num">NET-30</div>
+        <div class="desc" id="comm3-desc">Reliable monthly payouts</div>
+      </div>
+      <div class="commission-item">
+        <div class="num" id="comm4-num">$50</div>
+        <div class="desc" id="comm4-desc">Minimum payout threshold</div>
+      </div>
+    </div>
+  </div>
+
   <div class="divider"></div>
 
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-number">87%</div>
-      <div class="stat-label" id="stat1">Emergency calls hit voicemail</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">4.4x</div>
-      <div class="stat-label" id="stat2">LLM conversion vs organic</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">92%</div>
-      <div class="stat-label" id="stat3">Contractors are AI-invisible</div>
+  <!-- HOW IT WORKS -->
+  <div class="how-it-works">
+    <h2 id="hiw-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text" id="step1"><strong>Get your link.</strong> Sign up and receive a unique referral URL instantly.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text" id="step2"><strong>Share it.</strong> Post on social, email your list, or text your plumber contacts.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text" id="step3"><strong>Get paid.</strong> We track every click, every signup, every recurring payment — automatically.</div>
+      </div>
     </div>
   </div>
 
-  <div class="features">
-    <div class="feature" id="feat1">🔗 Unique referral links</div>
-    <div class="feature" id="feat2">📊 Real-time tracking</div>
-    <div class="feature" id="feat3">💰 Auto commission calc</div>
-    <div class="feature" id="feat4">🏆 Leaderboards</div>
-    <div class="feature" id="feat5">💳 NET-30 payouts</div>
+  <div class="divider"></div>
+
+  <!-- PRODUCT BRIEF (for those who care) -->
+  <div class="product-brief">
+    <h2 id="product-title">What You're Selling</h2>
+    <p id="product-desc">Plumbers Helper AI is the #1 GPS emergency plumbing leads network in America. We connect licensed plumbers with real-time emergency calls in their territory — and we do it with AI voice agents, smart dispatch, and zero lead waste.</p>
+    <div class="stats-row">
+      <div class="stat-mini">
+        <div class="n">87%</div>
+        <div class="l" id="stat1">Voicemail loss</div>
+      </div>
+      <div class="stat-mini">
+        <div class="n">4.4x</div>
+        <div class="l" id="stat2">LLM conversion</div>
+      </div>
+      <div class="stat-mini">
+        <div class="n">92%</div>
+        <div class="l" id="stat3">AI invisible</div>
+      </div>
+    </div>
   </div>
 
-  <div class="crm-choice">
-    <div class="crm-label" id="crm-label">🛠️ Built-In Flexibility</div>
-    <p class="crm-text" id="crm-text">Run on our native CRM platform <em>or</em> plug into your existing GoHighLevel account.</p>
-    <p class="crm-sub" id="crm-sub">Your pipeline. Your choice. No migration headaches.</p>
-  </div>
-
+  <!-- CTA -->
   <a class="launch-btn" href="https://talking-greetings-corrected-publish.trycloudflare.com" id="launch-btn">Launch Affiliate Portal →</a>
   <p class="secondary">
     <span id="new-partner">New partner?</span> <a href="https://talking-greetings-corrected-publish.trycloudflare.com/register" id="apply-link">Apply to join →</a>
   </p>
 
+  <!-- ECOSYSTEM -->
   <div class="ecosystem">
     <a href="https://proplumnetwork.com">ProPlum Network</a>·
     <a href="https://lever-ai.app">Lever AI</a>·
@@ -414,20 +529,29 @@
 
     const translations = {
       en: {
-        badge: "Part of the ProPlum Network ecosystem of companies",
-        tagline: "Number #1 GPS Emergency Plumbing Leads Network in America",
-        finePrint: "Part of the ProPlum Network ecosystem of companies",
-        stat1: "Emergency calls hit voicemail",
-        stat2: "LLM conversion vs organic",
-        stat3: "Contractors are AI-invisible",
-        feat1: "🔗 Unique referral links",
-        feat2: "📊 Real-time tracking",
-        feat3: "💰 Auto commission calc",
-        feat4: "🏆 Leaderboards",
-        feat5: "💳 NET-30 payouts",
-        crmLabel: "🛠️ Built-In Flexibility",
-        crmText: "Run on our native CRM platform <em>or</em> plug into your existing GoHighLevel account.",
-        crmSub: "Your pipeline. Your choice. No migration headaches.",
+        badge: "Part of the ProPlum Network ecosystem",
+        eyebrow: "Affiliate Partner Program",
+        heroHeadline: "Earn <span class='highlight'>90% Commission</span> on Every Referral",
+        heroSub: "Refer plumbing contractors to the #1 emergency leads network in America. No upfront cost. No risk. Just recurring revenue.",
+        bigNumber: "$450",
+        bigLabel: "per $500 license you sell",
+        comm1Num: "90%",
+        comm1Desc: "Commission rate on every sale",
+        comm2Num: "$200",
+        comm2Desc: "Recurring monthly per active license",
+        comm3Num: "NET-30",
+        comm3Desc: "Reliable monthly payouts",
+        comm4Num: "$50",
+        comm4Desc: "Minimum payout threshold",
+        hiwTitle: "How It Works",
+        step1: "<strong>Get your link.</strong> Sign up and receive a unique referral URL instantly.",
+        step2: "<strong>Share it.</strong> Post on social, email your list, or text your plumber contacts.",
+        step3: "<strong>Get paid.</strong> We track every click, every signup, every recurring payment — automatically.",
+        productTitle: "What You're Selling",
+        productDesc: "Plumbers Helper AI is the #1 GPS emergency plumbing leads network in America. We connect licensed plumbers with real-time emergency calls in their territory — and we do it with AI voice agents, smart dispatch, and zero lead waste.",
+        stat1: "Voicemail loss",
+        stat2: "LLM conversion",
+        stat3: "AI invisible",
         trailerLabel: "🎬 Ecosystem Trailer",
         trailerTitle: "See the Full ProPlum Network in Action",
         placeholderTrailer: "ProPlum Network ecosystem overview",
@@ -441,20 +565,29 @@
         applyLink: "Apply to join →"
       },
       es: {
-        badge: "Parte del ecosistema de empresas de ProPlum Network",
-        tagline: "La Red #1 de Leads de Plomería de Emergencia con GPS en América",
-        finePrint: "Parte del ecosistema de empresas de ProPlum Network",
-        stat1: "Llamadas de emergencia van al buzón",
-        stat2: "Conversión LLM vs orgánico",
-        stat3: "Contratistas son invisibles para IA",
-        feat1: "🔗 Links de referido únicos",
-        feat2: "📊 Rastreo en tiempo real",
-        feat3: "💰 Cálculo automático de comisiones",
-        feat4: "🏆 Tablas de clasificación",
-        feat5: "💳 Pagos NET-30",
-        crmLabel: "🛠️ Flexibilidad Integrada",
-        crmText: "Funciona en nuestra plataforma CRM nativa <em>o</em> conéctate a tu cuenta GoHighLevel existente.",
-        crmSub: "Tu pipeline. Tu elección. Sin dolores de migración.",
+        badge: "Parte del ecosistema de ProPlum Network",
+        eyebrow: "Programa de Afiliados",
+        heroHeadline: "Gana <span class='highlight'>90% de Comisión</span> en Cada Referido",
+        heroSub: "Refiere contratistas de plomería a la red #1 de leads de emergencia en América. Sin costo inicial. Sin riesgo. Solo ingresos recurrentes.",
+        bigNumber: "$450",
+        bigLabel: "por cada licencia de $500 que vendas",
+        comm1Num: "90%",
+        comm1Desc: "Tasa de comisión en cada venta",
+        comm2Num: "$200",
+        comm2Desc: "Mensual recurrente por licencia activa",
+        comm3Num: "NET-30",
+        comm3Desc: "Pagos mensuales confiables",
+        comm4Num: "$50",
+        comm4Desc: "Umbral mínimo de pago",
+        hiwTitle: "Cómo Funciona",
+        step1: "<strong>Obtén tu link.</strong> Regístrate y recibe un URL de referido único al instante.",
+        step2: "<strong>Compártelo.</strong> Publica en redes, envía a tu lista, o envía SMS a tus contactos de plomería.",
+        step3: "<strong>Cobra.</strong> Rastreamos cada clic, cada registro, cada pago recurrente — automáticamente.",
+        productTitle: "Qué Estás Vendiendo",
+        productDesc: "Plumbers Helper AI es la red #1 de leads de plomería de emergencia con GPS en América. Conectamos plomeros licenciados con llamadas de emergencia en tiempo real en su territorio — con agentes de voz IA, despacho inteligente y cero desperdicio de leads.",
+        stat1: "Pérdida al buzón",
+        stat2: "Conversión LLM",
+        stat3: "Invisibles para IA",
         trailerLabel: "🎬 Tráiler del Ecosistema",
         trailerTitle: "Mira la Red ProPlum Completa en Acción",
         placeholderTrailer: "Visión general del ecosistema ProPlum",
@@ -472,22 +605,28 @@
     function setLang(lang) {
       const t = translations[lang];
       document.getElementById('badge').textContent = t.badge;
-      document.getElementById('tagline').textContent = t.tagline;
-      document.getElementById('fine-print').textContent = t.finePrint;
+      document.getElementById('eyebrow').textContent = t.eyebrow;
+      document.getElementById('hero-headline').innerHTML = t.heroHeadline;
+      document.getElementById('hero-sub').textContent = t.heroSub;
+      document.getElementById('big-number').textContent = t.bigNumber;
+      document.getElementById('big-label').textContent = t.bigLabel;
+      document.getElementById('comm1-num').textContent = t.comm1Num;
+      document.getElementById('comm1-desc').textContent = t.comm1Desc;
+      document.getElementById('comm2-num').textContent = t.comm2Num;
+      document.getElementById('comm2-desc').textContent = t.comm2Desc;
+      document.getElementById('comm3-num').textContent = t.comm3Num;
+      document.getElementById('comm3-desc').textContent = t.comm3Desc;
+      document.getElementById('comm4-num').textContent = t.comm4Num;
+      document.getElementById('comm4-desc').textContent = t.comm4Desc;
+      document.getElementById('hiw-title').textContent = t.hiwTitle;
+      document.getElementById('step1').innerHTML = t.step1;
+      document.getElementById('step2').innerHTML = t.step2;
+      document.getElementById('step3').innerHTML = t.step3;
+      document.getElementById('product-title').textContent = t.productTitle;
+      document.getElementById('product-desc').textContent = t.productDesc;
       document.getElementById('stat1').textContent = t.stat1;
       document.getElementById('stat2').textContent = t.stat2;
       document.getElementById('stat3').textContent = t.stat3;
-      document.getElementById('feat1').textContent = t.feat1;
-      document.getElementById('feat2').textContent = t.feat2;
-      document.getElementById('feat3').textContent = t.feat3;
-      document.getElementById('feat4').textContent = t.feat4;
-      document.getElementById('feat5').textContent = t.feat5;
-      document.getElementById('crm-label').textContent = t.crmLabel;
-      document.getElementById('crm-text').innerHTML = t.crmText;
-      document.getElementById('crm-sub').textContent = t.crmSub;
-      document.getElementById('launch-btn').textContent = t.launchBtn;
-      document.getElementById('new-partner').textContent = t.newPartner;
-      document.getElementById('apply-link').textContent = t.applyLink;
       document.getElementById('trailer-label').textContent = t.trailerLabel;
       document.getElementById('trailer-title').textContent = t.trailerTitle;
       document.getElementById('placeholder-trailer').textContent = t.placeholderTrailer;
@@ -496,6 +635,9 @@
       document.getElementById('label-es').textContent = t.labelEs;
       document.getElementById('placeholder-en').textContent = t.placeholderEn;
       document.getElementById('placeholder-es').textContent = t.placeholderEs;
+      document.getElementById('launch-btn').textContent = t.launchBtn;
+      document.getElementById('new-partner').textContent = t.newPartner;
+      document.getElementById('apply-link').textContent = t.applyLink;
 
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
