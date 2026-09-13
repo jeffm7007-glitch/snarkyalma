@@ -338,6 +338,52 @@
     }
     .yt-placeholder p { font-size: 0.85rem; }
     .yt-placeholder .sub { font-size: 0.75rem; opacity: 0.6; }
+    /* COMPETITIVE */
+    .competitive {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .competitive h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .vs-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .vs-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      padding: 0.6rem 0;
+    }
+    .vs-row .them {
+      color: #5E6D82;
+      text-decoration: line-through;
+    }
+    .vs-row .us {
+      font-weight: 700;
+      color: #FF6B35;
+    }
+    .vs-divider {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 0.5rem 0;
+    }
+    .vs-note {
+      font-size: 0.75rem;
+      color: #5E6D82;
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+    }
     /* TOKEN MATH */
     .token-section {
       width: 100%;
@@ -567,6 +613,37 @@
     <span id="new-partner">New partner?</span> <a href="https://occupied-foto-waves-donations.trycloudflare.com/register" id="apply-link">Apply to join →</a>
   </p>
 
+  <!-- COMPETITIVE POSITIONING -->
+  <div class="competitive">
+    <h2 id="vs-title">Why This Sells Itself</h2>
+    <div class="vs-box">
+      <div class="vs-row">
+        <span class="them" id="vs-them1">Competitors (no AI, no GPS)</span>
+        <span class="them" id="vs-them-price1">$2,500+/mo</span>
+      </div>
+      <div class="vs-row">
+        <span class="us" id="vs-us1">Plumbers Helper AI (full AI + GPS)</span>
+        <span class="us" id="vs-us-price1">$499/mo</span>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="vs-row">
+        <span id="vs-feature1">AI Voice Agent (Sam)</span>
+        <span style="color:#FF6B35;font-weight:700;" id="vs-check1">✓ Included</span>
+      </div>
+      <div class="vs-row">
+        <span id="vs-feature2">GPS Emergency Dispatch</span>
+        <span style="color:#FF6B35;font-weight:700;" id="vs-check2">✓ Included</span>
+      </div>
+      <div class="vs-row">
+        <span id="vs-feature3">Smart Lead Routing</span>
+        <span style="color:#FF6B35;font-weight:700;" id="vs-check3">✓ Included</span>
+      </div>
+    </div>
+    <p class="vs-note" id="vs-note">5x cheaper than competitors with more features. The easiest pitch you'll ever make.</p>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- EARNINGS EXAMPLE -->
   <div class="earnings-example">
     <h2 id="example-title">Micro-Influencer Math</h2>
@@ -725,6 +802,18 @@
         tier3Period: "/mo",
         tier3Comm: "<strong>60%</strong> recurring",
         tier3Note: "Your brand, our infrastructure, their customers",
+        vsTitle: "Why This Sells Itself",
+        vsThem1: "Competitors (no AI, no GPS)",
+        vsThemPrice1: "$2,500+/mo",
+        vsUs1: "Plumbers Helper AI (full AI + GPS)",
+        vsUsPrice1: "$499/mo",
+        vsFeature1: "AI Voice Agent (Sam)",
+        vsCheck1: "✓ Included",
+        vsFeature2: "GPS Emergency Dispatch",
+        vsCheck2: "✓ Included",
+        vsFeature3: "Smart Lead Routing",
+        vsCheck3: "✓ Included",
+        vsNote: "5x cheaper than competitors with more features. The easiest pitch you'll ever make.",
         exampleTitle: "Micro-Influencer Math",
         exLine1: "10 Individual Licenses ($499/mo)",
         exVal1: "$1,996/mo",
@@ -797,6 +886,18 @@
         tier3Period: "/mes",
         tier3Comm: "<strong>60%</strong> recurrente",
         tier3Note: "Tu marca, nuestra infraestructura, sus clientes",
+        vsTitle: "Por Qué Se Vende Solo",
+        vsThem1: "Competidores (sin IA, sin GPS)",
+        vsThemPrice1: "$2,500+/mes",
+        vsUs1: "Plumbers Helper AI (IA + GPS completo)",
+        vsUsPrice1: "$499/mes",
+        vsFeature1: "Agente de Voz IA (Sam)",
+        vsCheck1: "✓ Incluido",
+        vsFeature2: "Despacho de Emergencia GPS",
+        vsCheck2: "✓ Incluido",
+        vsFeature3: "Enrutamiento Inteligente de Leads",
+        vsCheck3: "✓ Incluido",
+        vsNote: "5x más barato que competidores con más funciones. El pitch más fácil que harás.",
         exampleTitle: "Matemáticas para Micro-Influencers",
         exLine1: "10 Licencias Individuales ($499/mes)",
         exVal1: "$1,996/mes",
@@ -872,6 +973,18 @@
       document.getElementById('tier3-period').textContent = t.tier3Period;
       document.getElementById('tier3-comm').innerHTML = t.tier3Comm;
       document.getElementById('tier3-note').textContent = t.tier3Note;
+      document.getElementById('vs-title').textContent = t.vsTitle;
+      document.getElementById('vs-them1').textContent = t.vsThem1;
+      document.getElementById('vs-them-price1').textContent = t.vsThemPrice1;
+      document.getElementById('vs-us1').textContent = t.vsUs1;
+      document.getElementById('vs-us-price1').textContent = t.vsUsPrice1;
+      document.getElementById('vs-feature1').textContent = t.vsFeature1;
+      document.getElementById('vs-check1').textContent = t.vsCheck1;
+      document.getElementById('vs-feature2').textContent = t.vsFeature2;
+      document.getElementById('vs-check2').textContent = t.vsCheck2;
+      document.getElementById('vs-feature3').textContent = t.vsFeature3;
+      document.getElementById('vs-check3').textContent = t.vsCheck3;
+      document.getElementById('vs-note').textContent = t.vsNote;
       document.getElementById('example-title').textContent = t.exampleTitle;
       document.getElementById('ex-line1').textContent = t.exLine1;
       document.getElementById('ex-val1').textContent = t.exVal1;
