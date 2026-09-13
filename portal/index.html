@@ -695,6 +695,7 @@
         <div class="l" id="stat3">AI invisible</div>
       </div>
     </div>
+    <p style="font-size:0.75rem;color:#5E6D82;margin-top:1rem;font-style:italic;" id="pricing-note">* Customer pays for usage tokens</p>
   </div>
 
   <!-- CTA -->
@@ -784,40 +785,6 @@
       </div>
     </div>
     <p class="earnings-note" id="ex-note">No white-label sales required. Just 10 plumbers.</p>
-  </div>
-
-  <!-- TOKEN MATH -->
-  <div class="token-section">
-    <h2 id="token-title">The Token Model (Why You Still Win)</h2>
-    <div class="token-box">
-      <div class="token-row">
-        <span id="tok-line1">Customer buys Individual License</span>
-        <span class="val" id="tok-val1">$499/mo</span>
-      </div>
-      <div class="token-row">
-        <span id="tok-line2">You earn 40% recurring</span>
-        <span class="val highlight" id="tok-val2">$199/mo</span>
-      </div>
-      <div class="token-divider"></div>
-      <div class="token-row">
-        <span id="tok-line3">Customer (plumber) pays for token usage</span>
-        <span class="val" id="tok-val3">$200–$300+/mo</span>
-      </div>
-      <div class="token-row">
-        <span id="tok-line4">Token commission to you</span>
-        <span class="val" id="tok-val4">$0 — you pay nothing</span>
-      </div>
-      <div class="token-divider"></div>
-      <div class="token-row">
-        <span id="tok-line5">Customer total spend</span>
-        <span class="val" id="tok-val5">$699–$799+/mo</span>
-      </div>
-      <div class="token-row">
-        <span id="tok-line6">Your total recurring</span>
-        <span class="val highlight" id="tok-val6">$199/mo (~25-28% of spend)</span>
-      </div>
-    </div>
-    <p class="token-note" id="tok-note">The plumber customer pays for their own token usage — never you. Tokens are our margin. That's how we afford to pay you 40-60% on the base license. You get the big recurring cut. We get the usage upside. Zero risk to you.</p>
   </div>
 
   <!-- ROI MATH -->
@@ -929,6 +896,7 @@
         stat1: "Voicemail loss",
         stat2: "LLM conversion",
         stat3: "AI invisible",
+        pricingNote: "* Customer pays for usage tokens",
         vsTitle: "Why This Sells Itself",
         vsThem1: "Competitors (no AI, no GPS)",
         vsThemPrice1: "$2,500+/mo",
@@ -1021,6 +989,7 @@
         stat1: "Pérdida al buzón",
         stat2: "Conversión LLM",
         stat3: "Invisibles para IA",
+        pricingNote: "* El cliente paga por tokens de uso",
         vsTitle: "Por Qué Se Vende Solo",
         vsThem1: "Competidores (sin IA, sin GPS)",
         vsThemPrice1: "$2,500+/mes",
@@ -1116,6 +1085,7 @@
       document.getElementById('stat1').textContent = t.stat1;
       document.getElementById('stat2').textContent = t.stat2;
       document.getElementById('stat3').textContent = t.stat3;
+      document.getElementById('pricing-note').textContent = t.pricingNote;
       document.getElementById('vs-title').textContent = t.vsTitle;
       document.getElementById('vs-them1').textContent = t.vsThem1;
       document.getElementById('vs-them-price1').textContent = t.vsThemPrice1;
