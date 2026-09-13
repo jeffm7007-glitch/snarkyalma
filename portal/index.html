@@ -108,13 +108,14 @@
       text-align: center;
       margin: 1rem 0 0.5rem;
     }
-    .hero-logo-img {
-      width: 300px;
-      height: 300px;
-      object-fit: contain;
+    .hero-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 12px;
       display: block;
       margin: 0 auto;
-      filter: drop-shadow(0 0 40px rgba(255,107,53,0.25));
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
     .commission-box .big-number {
       font-size: 3.5rem;
@@ -661,7 +662,7 @@
     @media (max-width: 700px) {
       .earnings-hero h1 { font-size: 1.9rem; }
       .commission-box .big-number { font-size: 2.5rem; }
-      .hero-logo-img { width: 220px; height: 220px; }
+      .hero-image { border-radius: 8px; }
       .commission-grid { grid-template-columns: 1fr; }
       .videos-row { grid-template-columns: 1fr; }
       .video-card { max-width: 500px; margin: 0 auto; width: 100%; }
@@ -679,14 +680,13 @@
   </div>
 
   <!-- HERO IMAGE -->
-  <div class="hero-image-wrap">
-    <img src="hero-logo.png" alt="Plumbers Helper AI" class="hero-logo-img">
-  </div>
-
   <!-- EARNINGS HERO -->
   <div class="earnings-hero">
+    <div class="hero-image-wrap">
+      <img src="hero-image.jpg" alt="24 Hour Emergency Dispatched Plumbing Services" class="hero-image">
+    </div>
     <div class="eyebrow" id="eyebrow">Affiliate Partner Program</div>
-    <h1 id="hero-headline">Earn Up to <span class="highlight">60% Recurring</span> Commission</h1>
+    <h1 id="hero-headline">Number #1 GPS EMERGENCY PLUMBING LEAD PLATFORM IN AMERICA</h1>
     <p class="sub" id="hero-sub">The only GPS emergency plumbing leads platform in America. No one else has this. No upfront cost. Recurring revenue that compounds.</p>
   </div>
 
@@ -759,9 +759,9 @@
   </div>
 
   <!-- CTA -->
-  <a class="launch-btn" href="https://pressing-receive-meanwhile-name.trycloudflare.com" id="launch-btn">Launch Affiliate Portal →</a>
+  <a class="launch-btn" href="https://ide-enough-letter-dispatched.trycloudflare.com" id="launch-btn">Launch Affiliate Portal →</a>
   <p class="secondary">
-    <span id="new-partner">New partner?</span> <a href="https://pressing-receive-meanwhile-name.trycloudflare.com/register" id="apply-link">Apply to join →</a>
+    <span id="new-partner">New partner?</span> <a href="https://ide-enough-letter-dispatched.trycloudflare.com/register" id="apply-link">Apply to join →</a>
   </p>
 
   <!-- COMPETITIVE POSITIONING -->
@@ -942,7 +942,7 @@
       en: {
         badge: "Part of the ProPlum Network ecosystem",
         eyebrow: "Affiliate Partner Program",
-        heroHeadline: "Earn Up to <span class='highlight'>60% Recurring</span> Commission",
+        heroHeadline: "Number #1 GPS EMERGENCY PLUMBING LEAD PLATFORM IN AMERICA",
         heroSub: "The only GPS emergency plumbing leads platform in America. No one else has this. No upfront cost. Recurring revenue that compounds.",
         bigNumber: "$999",
         bigLabel: "per month white-label license (60% = $599 to you)",
@@ -1045,7 +1045,7 @@
       es: {
         badge: "Parte del ecosistema de ProPlum Network",
         eyebrow: "Programa de Afiliados",
-        heroHeadline: "Gana Hasta <span class='highlight'>60% Recurrente</span> de Comisión",
+        heroHeadline: "NÚMERO #1 PLATAFORMA DE LEADS DE EMERGENCIA PLOMERÍA GPS EN AMÉRICA",
         heroSub: "La única plataforma de leads de emergencia plomería GPS en América. Nadie más tiene esto. Sin costo inicial. Ingresos recurrentes que se acumulan.",
         bigNumber: "$999",
         bigLabel: "por mes licencia white-label (60% = $599 para ti)",
