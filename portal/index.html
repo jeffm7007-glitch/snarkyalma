@@ -599,6 +599,24 @@
       color: #FF6B35;
     }
     /* TRAILER */
+    .incentives-section {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .incentives-section img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .incentives-section h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin: 0;
+    }
     .trailer-section {
       width: 100%;
       max-width: 700px;
@@ -956,6 +974,12 @@
     <a href="https://snarkyalma.com">SnarkyAlma</a>
   </div>
 
+  <!-- CASH AND VACATION INCENTIVES -->
+  <div class="incentives-section" id="incentives-section">
+    <img src="cash-vacation.jpg" alt="Cash and Vacation Sales Incentives">
+    <h2 id="incentives-title">Cash and Vacation Sales Incentives</h2>
+  </div>
+
   <!-- TRAILER under ecosystem -->
   <div class="trailer-section">
     <div class="trailer-label" id="trailer-label">🎬 Destination Trailer</div>
@@ -1075,6 +1099,7 @@
         tokLine6: "Your total recurring",
         tokVal6: "$199/mo (~25-28% of spend)",
         tokNote: "The plumber customer pays for their own token usage — never you. Tokens are our margin. That's how we afford to pay you 40-60% on the base license. You get the big recurring cut. We get the usage upside. Zero risk to you.",
+        incentivesTitle: "Cash and Vacation Sales Incentives",
         trailerLabel: "🎬 Destination Trailer",
         trailerTitle: "Monthly Vacation Giveaways and Bonuses",
         placeholderTrailer: "The affiliate lifestyle — freedom, income, legacy",
@@ -1182,6 +1207,7 @@
         tokLine6: "Tu total recurrente",
         tokVal6: "$199/mes (~25-28% del gasto)",
         tokNote: "El cliente plomero paga su propio uso de tokens — nunca tú. Los tokens son nuestro margen. Así podemos pagarte 40-60% en la licencia base. Tú obtienes el gran corte recurrente. Nosotros, el upside por uso. Cero riesgo para ti.",
+        incentivesTitle: "Incentivos de Ventas en Efectivo y Vacaciones",
         trailerLabel: "🎬 Tráiler de Destino",
         trailerTitle: "Sorteos de Vacaciones y Bonos Mensuales",
         placeholderTrailer: "El estilo de vida de afiliado — libertad, ingresos, legado",
@@ -1311,6 +1337,7 @@
       document.getElementById('tok-line6').textContent = t.tokLine6;
       document.getElementById('tok-val6').textContent = t.tokVal6;
       document.getElementById('tok-note').textContent = t.tokNote;
+      document.getElementById('incentives-title').textContent = t.incentivesTitle;
       document.getElementById('trailer-label').textContent = t.trailerLabel;
       document.getElementById('trailer-title').textContent = t.trailerTitle;
       document.getElementById('placeholder-trailer').textContent = t.placeholderTrailer;
