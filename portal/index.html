@@ -93,6 +93,27 @@
       max-width: 520px;
       margin: 0 auto 0.5rem;
     }
+    .pull-quote {
+      background: #FF6B35;
+      color: #080C15;
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      max-width: 520px;
+      margin: 1rem auto 0.5rem;
+      text-align: center;
+      line-height: 1.5;
+      border: 2px solid rgba(255,107,53,0.6);
+    }
+    .pull-quote .attribution {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
     .sam-section {
       display: flex;
       flex-direction: column;
@@ -684,6 +705,7 @@
       .earnings-hero h1 { font-size: 1.9rem; }
       .commission-box .big-number { font-size: 2.5rem; }
       .hero-image { border-radius: 8px; }
+      .pull-quote { font-size: 0.85rem; padding: 0.75rem 1rem; }
       .sam-avatar { width: 90px; height: 90px; }
       .sam-phone { font-size: 0.95rem; }
       .commission-grid { grid-template-columns: 1fr; }
@@ -711,6 +733,10 @@
     <div class="eyebrow" id="eyebrow">Affiliate Partner Program</div>
     <h1 id="hero-headline">Number #1 GPS EMERGENCY PLUMBING LEAD PLATFORM IN AMERICA</h1>
     <p class="sub" id="hero-sub">The only GPS emergency plumbing leads platform in America. No one else has this. No upfront cost. Recurring revenue that compounds.</p>
+    <div class="pull-quote" id="pull-quote">
+      "Money makes money. And the money that money makes, makes more money."
+      <div class="attribution">— Benjamin Franklin</div>
+    </div>
     <div class="sam-section">
       <img src="sam-dispatcher.png" alt="Sam AI Dispatcher" class="sam-avatar">
       <div class="sam-phone" id="sam-phone">📞 Call Sam: (813) 491-3590</div>
@@ -971,6 +997,8 @@
         eyebrow: "Affiliate Partner Program",
         heroHeadline: "Number #1 GPS EMERGENCY PLUMBING LEAD PLATFORM IN AMERICA",
         heroSub: "The only GPS emergency plumbing leads platform in America. No one else has this. No upfront cost. Recurring revenue that compounds.",
+        pullQuote: "\"Money makes money. And the money that money makes, makes more money.\"",
+        pullQuoteAttr: "— Benjamin Franklin",
         samPhone: "📞 Call Sam: (813) 491-3590",
         bigNumber: "$999",
         bigLabel: "per month white-label license (60% = $599 to you)",
@@ -1075,6 +1103,8 @@
         eyebrow: "Programa de Afiliados",
         heroHeadline: "NÚMERO #1 PLATAFORMA DE LEADS DE EMERGENCIA PLOMERÍA GPS EN AMÉRICA",
         heroSub: "La única plataforma de leads de emergencia plomería GPS en América. Nadie más tiene esto. Sin costo inicial. Ingresos recurrentes que se acumulan.",
+        pullQuote: "\"El dinero hace dinero. Y el dinero que el dinero hace, hace más dinero.\"",
+        pullQuoteAttr: "— Benjamin Franklin",
         samPhone: "📞 Llama a Sam: (813) 491-3590",
         bigNumber: "$999",
         bigLabel: "por mes licencia white-label (60% = $599 para ti)",
@@ -1182,6 +1212,7 @@
       document.getElementById('eyebrow').textContent = t.eyebrow;
       document.getElementById('hero-headline').innerHTML = t.heroHeadline;
       document.getElementById('hero-sub').textContent = t.heroSub;
+      document.getElementById('pull-quote').innerHTML = t.pullQuote + '<div class="attribution">' + t.pullQuoteAttr + '</div>';
       document.getElementById('sam-phone').textContent = t.samPhone;
       document.getElementById('big-number').textContent = t.bigNumber;
       document.getElementById('big-label').textContent = t.bigLabel;
