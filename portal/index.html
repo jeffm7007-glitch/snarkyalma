@@ -305,6 +305,75 @@
       text-align: center;
       font-style: italic;
     }
+    /* AGENCY PRICING */
+    .agency-section {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .agency-section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .agency-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: left;
+    }
+    .agency-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.8rem;
+      padding: 0.5rem 0;
+    }
+    .agency-row.header {
+      font-weight: 700;
+      color: #5E6D82;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .agency-row.highlight {
+      background: rgba(255,107,53,0.08);
+      margin: 0 -0.5rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+    .agency-row .val {
+      font-weight: 700;
+    }
+    .agency-row .val.them {
+      color: #22C55E;
+    }
+    .agency-row .val.us {
+      color: #FF6B35;
+    }
+    .agency-divider {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 0.25rem 0;
+    }
+    .agency-divider.thick {
+      border-top: 2px solid rgba(255,107,53,0.3);
+      margin: 0.5rem 0;
+    }
+    .agency-source {
+      font-size: 0.65rem;
+      color: #5E6D82;
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+    }
+    .agency-source a {
+      color: #FF6B35;
+      text-decoration: none;
+    }
     /* WHITE LABEL POWER */
     .wl-section {
       width: 100%;
@@ -690,6 +759,46 @@
     <p class="vs-note" id="vs-note">5x cheaper than competitors with more features. The easiest pitch you'll ever make.</p>
   </div>
 
+  <!-- AGENCY PRICING COMPARISON -->
+  <div class="agency-section">
+    <h2 id="agency-title">What Agencies Actually Charge</h2>
+    <div class="agency-box">
+      <div class="agency-row header">
+        <span id="agency-col1">Service Model</span>
+        <span id="agency-col2">Monthly Retainer</span>
+        <span id="agency-col3">What You Get</span>
+      </div>
+      <div class="agency-divider"></div>
+      <div class="agency-row">
+        <span id="agency-r1c1">Local SEO (1-3 locations)</span>
+        <span class="val them" id="agency-r1c2">$1,000–$2,500</span>
+        <span id="agency-r1c3">GBP, citations, landing pages</span>
+      </div>
+      <div class="agency-row">
+        <span id="agency-r2c1">Mid-Market SEO</span>
+        <span class="val them" id="agency-r2c2">$2,500–$7,500</span>
+        <span id="agency-r2c3">Tech audits, backlinks, content</span>
+      </div>
+      <div class="agency-row">
+        <span id="agency-r3c1">GEO / AEO Program</span>
+        <span class="val them" id="agency-r3c2">$3,500–$8,500</span>
+        <span id="agency-r3c3">Knowledge Graph, schema, LLM tracking</span>
+      </div>
+      <div class="agency-row">
+        <span id="agency-r4c1">Enterprise Hybrid</span>
+        <span class="val them" id="agency-r4c2">$10,000–$30,000+</span>
+        <span id="agency-r4c3">Full-funnel, digital PR, AI indexes</span>
+      </div>
+      <div class="agency-divider thick"></div>
+      <div class="agency-row highlight">
+        <span id="agency-r5c1">Plumbers Helper AI</span>
+        <span class="val us" id="agency-r5c2">$499/mo</span>
+        <span id="agency-r5c3">GPS dispatch + AI voice + GEO-ready</span>
+      </div>
+    </div>
+    <p class="agency-source" id="agency-source">Source: <a href="#" onclick="return false;">industry agency benchmarks</a> — US-based SEO strategist rates</p>
+  </div>
+
   <div class="divider"></div>
 
   <!-- WHITE LABEL MARKUP POWER -->
@@ -879,7 +988,27 @@
         placeholderEs: "Spanish explainer video",
         launchBtn: "Launch Affiliate Portal →",
         newPartner: "New partner?",
-        applyLink: "Apply to join →"
+        applyLink: "Apply to join →",
+        agencyTitle: "What Agencies Actually Charge",
+        agencyCol1: "Service Model",
+        agencyCol2: "Monthly Retainer",
+        agencyCol3: "What You Get",
+        agencyR1c1: "Local SEO (1-3 locations)",
+        agencyR1c2: "$1,000–$2,500",
+        agencyR1c3: "GBP, citations, landing pages",
+        agencyR2c1: "Mid-Market SEO",
+        agencyR2c2: "$2,500–$7,500",
+        agencyR2c3: "Tech audits, backlinks, content",
+        agencyR3c1: "GEO / AEO Program",
+        agencyR3c2: "$3,500–$8,500",
+        agencyR3c3: "Knowledge Graph, schema, LLM tracking",
+        agencyR4c1: "Enterprise Hybrid",
+        agencyR4c2: "$10,000–$30,000+",
+        agencyR4c3: "Full-funnel, digital PR, AI indexes",
+        agencyR5c1: "Plumbers Helper AI",
+        agencyR5c2: "$499/mo",
+        agencyR5c3: "GPS dispatch + AI voice + GEO-ready",
+        agencySource: "Source: industry agency benchmarks — US-based SEO strategist rates"
       },
       es: {
         badge: "Parte del ecosistema de ProPlum Network",
@@ -962,7 +1091,27 @@
         placeholderEs: "Video explicativo en español",
         launchBtn: "Abrir Portal de Afiliados →",
         newPartner: "¿Nuevo socio?",
-        applyLink: "Solicitar unirse →"
+        applyLink: "Solicitar unirse →",
+        agencyTitle: "Lo Que Realmente Cobran las Agencias",
+        agencyCol1: "Modelo de Servicio",
+        agencyCol2: "Retainer Mensual",
+        agencyCol3: "Lo Que Obtienes",
+        agencyR1c1: "SEO Local (1-3 ubicaciones)",
+        agencyR1c2: "$1,000–$2,500",
+        agencyR1c3: "GBP, citaciones, landing pages",
+        agencyR2c1: "SEO Mid-Market",
+        agencyR2c2: "$2,500–$7,500",
+        agencyR2c3: "Auditorías técnicas, backlinks, contenido",
+        agencyR3c1: "Programa GEO / AEO",
+        agencyR3c2: "$3,500–$8,500",
+        agencyR3c3: "Knowledge Graph, schema, tracking LLM",
+        agencyR4c1: "Híbrido Empresarial",
+        agencyR4c2: "$10,000–$30,000+",
+        agencyR4c3: "Full-funnel, PR digital, índices IA",
+        agencyR5c1: "Plumbers Helper AI",
+        agencyR5c2: "$499/mes",
+        agencyR5c3: "GPS dispatch + voz IA + GEO-ready",
+        agencySource: "Fuente: benchmarks de agencias — tarifas de estrategas SEO en EE.UU."
       }
     };
 
@@ -1004,6 +1153,26 @@
       document.getElementById('vs-feature3').textContent = t.vsFeature3;
       document.getElementById('vs-check3').textContent = t.vsCheck3;
       document.getElementById('vs-note').textContent = t.vsNote;
+      document.getElementById('agency-title').textContent = t.agencyTitle;
+      document.getElementById('agency-col1').textContent = t.agencyCol1;
+      document.getElementById('agency-col2').textContent = t.agencyCol2;
+      document.getElementById('agency-col3').textContent = t.agencyCol3;
+      document.getElementById('agency-r1c1').textContent = t.agencyR1c1;
+      document.getElementById('agency-r1c2').textContent = t.agencyR1c2;
+      document.getElementById('agency-r1c3').textContent = t.agencyR1c3;
+      document.getElementById('agency-r2c1').textContent = t.agencyR2c1;
+      document.getElementById('agency-r2c2').textContent = t.agencyR2c2;
+      document.getElementById('agency-r2c3').textContent = t.agencyR2c3;
+      document.getElementById('agency-r3c1').textContent = t.agencyR3c1;
+      document.getElementById('agency-r3c2').textContent = t.agencyR3c2;
+      document.getElementById('agency-r3c3').textContent = t.agencyR3c3;
+      document.getElementById('agency-r4c1').textContent = t.agencyR4c1;
+      document.getElementById('agency-r4c2').textContent = t.agencyR4c2;
+      document.getElementById('agency-r4c3').textContent = t.agencyR4c3;
+      document.getElementById('agency-r5c1').textContent = t.agencyR5c1;
+      document.getElementById('agency-r5c2').textContent = t.agencyR5c2;
+      document.getElementById('agency-r5c3').textContent = t.agencyR5c3;
+      document.getElementById('agency-source').textContent = t.agencySource;
       document.getElementById('wl-title').textContent = t.wlTitle;
       document.getElementById('wl-line1').textContent = t.wlLine1;
       document.getElementById('wl-val1').textContent = t.wlVal1;
