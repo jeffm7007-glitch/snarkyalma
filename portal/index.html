@@ -449,49 +449,6 @@
       text-align: center;
       font-style: italic;
     }
-    /* ROI */
-    .roi-section {
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-      margin: 1.5rem 0 0.5rem;
-    }
-    .roi-section h2 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-    .roi-box {
-      background: rgba(255,107,53,0.06);
-      border: 1px solid rgba(255,107,53,0.15);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: left;
-    }
-    .roi-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #8D9BAE;
-      padding: 0.5rem 0;
-    }
-    .roi-row .val {
-      font-weight: 700;
-      color: #fff;
-    }
-    .roi-row .val.highlight {
-      color: #FF6B35;
-    }
-    .roi-note {
-      font-size: 0.75rem;
-      color: #5E6D82;
-      margin-top: 0.75rem;
-      line-height: 1.5;
-      text-align: center;
-      font-style: italic;
-    }
     /* ECOSYSTEM */
     .ecosystem {
       margin-top: 1rem;
@@ -787,33 +744,6 @@
     <p class="earnings-note" id="ex-note">No white-label sales required. For every 10 plumbers.</p>
   </div>
 
-  <!-- ROI MATH -->
-  <div class="roi-section">
-    <h2 id="roi-title">Why Plumbers Love Tokens</h2>
-    <div class="roi-box">
-      <div class="roi-row">
-        <span id="roi-line1">Plumber spends on tokens</span>
-        <span class="val" id="roi-val1">$500/mo</span>
-      </div>
-      <div class="roi-row">
-        <span id="roi-line2">Emergency job average value</span>
-        <span class="val" id="roi-val2">$1,500–$3,000+</span>
-      </div>
-      <div class="token-divider"></div>
-      <div class="roi-row">
-        <span id="roi-line3">2–3 jobs from AI leads</span>
-        <span class="val highlight" id="roi-val3">10x ROI</span>
-      </div>
-      <div class="roi-row">
-        <span id="roi-line4">Even 1 job alone</span>
-        <span class="val highlight" id="roi-val4">4x ROI (incredible)</span>
-      </div>
-    </div>
-    <p class="roi-note" id="roi-note">The plumber spends $500 and books 2–3 emergency jobs worth $3,000–$9,000. Tokens can start as low as $20/month — but the more they use, the more AI calls they get, the more appointments they book, the more money they make. That's why they keep buying tokens. That's why they never cancel. That's why your recurring commission keeps coming.</p>
-  </div>
-
-  <div class="divider"></div>
-
   <!-- ECOSYSTEM -->
   <div class="ecosystem">
     <a href="https://proplumnetwork.com">ProPlum Network</a>·
@@ -943,16 +873,6 @@
         tokLine6: "Your total recurring",
         tokVal6: "$199/mo (~25-28% of spend)",
         tokNote: "The plumber customer pays for their own token usage — never you. Tokens are our margin. That's how we afford to pay you 40-60% on the base license. You get the big recurring cut. We get the usage upside. Zero risk to you.",
-        roiTitle: "Why Plumbers Love Tokens",
-        roiLine1: "Plumber spends on tokens",
-        roiVal1: "$500/mo",
-        roiLine2: "Emergency job average value",
-        roiVal2: "$1,500–$3,000+",
-        roiLine3: "2–3 jobs from AI leads",
-        roiVal3: "10x ROI",
-        roiLine4: "Even 1 job alone",
-        roiVal4: "4x ROI (incredible)",
-        roiNote: "The plumber spends $500 and books 2–3 emergency jobs worth $3,000–$9,000. That's why they keep buying tokens. That's why they never cancel. That's why your recurring commission keeps coming.",
         trailerLabel: "🎬 Ecosystem Trailer",
         trailerTitle: "See the Full ProPlum Network in Action",
         placeholderTrailer: "ProPlum Network ecosystem overview",
@@ -1036,16 +956,6 @@
         tokLine6: "Tu total recurrente",
         tokVal6: "$199/mes (~25-28% del gasto)",
         tokNote: "El cliente plomero paga su propio uso de tokens — nunca tú. Los tokens son nuestro margen. Así podemos pagarte 40-60% en la licencia base. Tú obtienes el gran corte recurrente. Nosotros, el upside por uso. Cero riesgo para ti.",
-        roiTitle: "Por Qué los Plomeros Aman los Tokens",
-        roiLine1: "Plomero gasta en tokens",
-        roiVal1: "$500/mes",
-        roiLine2: "Valor promedio de trabajo de emergencia",
-        roiVal2: "$1,500–$3,000+",
-        roiLine3: "2–3 trabajos de leads de IA",
-        roiVal3: "10x ROI",
-        roiLine4: "Incluso 1 trabajo solo",
-        roiVal4: "4x ROI (increíble)",
-        roiNote: "El plomero gasta $500 y reserva 2–3 trabajos de emergencia por $3,000–$9,000. Los tokens pueden empezar desde $20/mes — pero mientras más usan, más llamadas de IA obtienen, más citas reservan, más dinero ganan. Por eso siguen comprando tokens. Por eso nunca cancelan. Por eso tu comisión recurrente sigue llegando.",
         trailerLabel: "🎬 Tráiler del Ecosistema",
         trailerTitle: "Mira la Red ProPlum Completa en Acción",
         placeholderTrailer: "Visión general del ecosistema ProPlum",
@@ -1132,16 +1042,6 @@
       document.getElementById('tok-line6').textContent = t.tokLine6;
       document.getElementById('tok-val6').textContent = t.tokVal6;
       document.getElementById('tok-note').textContent = t.tokNote;
-      document.getElementById('roi-title').textContent = t.roiTitle;
-      document.getElementById('roi-line1').textContent = t.roiLine1;
-      document.getElementById('roi-val1').textContent = t.roiVal1;
-      document.getElementById('roi-line2').textContent = t.roiLine2;
-      document.getElementById('roi-val2').textContent = t.roiVal2;
-      document.getElementById('roi-line3').textContent = t.roiLine3;
-      document.getElementById('roi-val3').textContent = t.roiVal3;
-      document.getElementById('roi-line4').textContent = t.roiLine4;
-      document.getElementById('roi-val4').textContent = t.roiVal4;
-      document.getElementById('roi-note').textContent = t.roiNote;
       document.getElementById('trailer-label').textContent = t.trailerLabel;
       document.getElementById('trailer-title').textContent = t.trailerTitle;
       document.getElementById('placeholder-trailer').textContent = t.placeholderTrailer;
