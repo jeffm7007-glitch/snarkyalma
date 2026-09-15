@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Marketing Resources | Plumbers Helper AI</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#080C15;color:#fff;line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:2rem}
+header{text-align:center;padding:3rem 1rem;border-bottom:2px solid #FF6B35;margin-bottom:2rem}
+header h1{font-size:2.2rem;font-weight:800;margin-bottom:.5rem}
+header p{color:#aab4c4;font-size:1.1rem}
+.resource-section{margin-bottom:3rem}
+.resource-section h2{font-size:1.5rem;color:#FF6B35;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #1a2332}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.resource-card{background:#0d1424;border:1px solid #1a2332;border-radius:12px;padding:1.5rem;transition:transform .2s,border-color .2s}
+.resource-card:hover{transform:translateY(-4px);border-color:#FF6B35}
+.resource-card h3{font-size:1.1rem;margin-bottom:.5rem;color:#fff}
+.resource-card p{color:#aab4c4;font-size:.9rem;margin-bottom:1rem}
+.resource-card .tag{display:inline-block;background:#FF6B35;color:#fff;padding:.25rem .75rem;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:.75rem}
+.download-btn{display:inline-block;background:#FF6B35;color:#fff;padding:.6rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.9rem}
+.download-btn:hover{background:#e85a28}
+.file-meta{color:#5a6a7d;font-size:.8rem;margin-top:.5rem}
+footer{text-align:center;padding:2rem;color:#5a6a7d;font-size:.85rem;border-top:1px solid #1a2332;margin-top:3rem}
+.back-link{display:inline-block;color:#FF6B35;text-decoration:none;margin-bottom:2rem;font-weight:600}
+.back-link:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<!-- PASSWORD GATE -->
+<div id="gate-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#080C15;z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#0D1422;border:1px solid #1D2636;border-radius:16px;padding:2.5rem;max-width:420px;width:100%;text-align:center;">
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">🔒</div>
+      <h2 style="color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:0.25rem;">Affiliate Portal</h2>
+      <p style="color:#8D9BAE;font-size:0.85rem;">Enter your credentials to access partner resources</p>
+    </div>
+    <div style="margin-bottom:1rem;text-align:left;">
+      <label style="display:block;color:#8D9BAE;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Business Email</label>
+      <input type="email" id="gate-email" placeholder="your business email" style="width:100%;padding:0.75rem 1rem;background:#080C15;border:1px solid #1D2636;border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;outline:none;" autofocus>
+    </div>
+    <div style="margin-bottom:1.5rem;text-align:left;">
+      <label style="display:block;color:#8D9BAE;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Password</label>
+      <input type="password" id="gate-password" placeholder="••••••••" style="width:100%;padding:0.75rem 1rem;background:#080C15;border:1px solid #1D2636;border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;outline:none;">
+    </div>
+    <button onclick="checkGate()" style="width:100%;padding:0.85rem;background:#FF6B35;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;">Access Portal →</button>
+    <p id="gate-error" style="color:#ff4444;font-size:0.8rem;margin-top:0.75rem;display:none;">Invalid password. Try again.</p>
+  </div>
+</div>
+<script>
+  (function() {
+    if (sessionStorage.getItem('portal_auth') === 'true') {
+      document.getElementById('gate-overlay').style.display = 'none';
+      return;
+    }
+    document.body.style.overflow = 'hidden';
+  })();
+  function checkGate() {
+    var email = document.getElementById('gate-email').value.trim();
+    var pass = document.getElementById('gate-password').value;
+    if (pass === 'password') {
+      sessionStorage.setItem('portal_auth', 'true');
+      sessionStorage.setItem('portal_email', email);
+      document.getElementById('gate-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    } else {
+      document.getElementById('gate-error').style.display = 'block';
+      document.getElementById('gate-password').value = '';
+      document.getElementById('gate-password').focus();
+    }
+  }
+  document.getElementById('gate-password').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkGate();
+  });
+  document.getElementById('gate-email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('gate-password').focus();
+  });
+</script>
+
+<div class="container">
+<a href="index.html" class="back-link">← Back to Portal</a>
+
+<header>
+<h1>🎯 Affiliate Marketing Resources</h1>
+<p>Everything you need to promote ProPlum Network and earn commissions</p>
+</header>
+
+<div class="resource-section">
+<h2>📄 Sales Documents</h2>
+<div class="resource-grid">
+<div class="resource-card">
+<span class="tag">White Paper</span>
+<h3>The Invisible Plumber Crisis</h3>
+<p>Complete white paper on AI search visibility for plumbing businesses. Includes $500K case study, ROI calculator, and competitive analysis. Perfect for sending to franchise owners and multi-location operators.</p>
+<a href="white-paper.pdf" class="download-btn" download>Download PDF</a>
+<div class="file-meta">PDF • 57 KB • 12 pages</div>
+</div>
+<div class="resource-card">
+<span class="tag">Editable</span>
+<h3>White Paper (Word)</h3>
+<p>Editable version of the white paper. Customize with your affiliate link, add your logo, or tailor the case study for a specific prospect before sending.</p>
+<a href="white-paper.docx" class="download-btn" download>Download DOCX</a>
+<div class="file-meta">Word • 16 KB • Editable</div>
+</div>
+</div>
+</div>
+
+<div class="resource-section">
+<h2>🎬 Video Scripts</h2>
+<div class="resource-grid">
+<div class="resource-card">
+<span class="tag">Video Script</span>
+<h3>Franchise Audit Pitch Video</h3>
+<p>8-scene video script for Google Vids. Covers the 1-Tom-Plumber case study, $500K leak, competitive gap, and ProPlum solution. Includes visual directions and voiceover text.</p>
+<a href="video-script.pdf" class="download-btn" download>Download PDF</a>
+<div class="file-meta">PDF • 34 KB • 2.5 min script</div>
+</div>
+<div class="resource-card">
+<span class="tag">Editable</span>
+<h3>Video Script (Word)</h3>
+<p>Editable version. Customize for any franchise target, adjust the numbers, or rebrand for your local market. Ready to upload to Google Vids for auto-generation.</p>
+<a href="video-script.docx" class="download-btn" download>Download DOCX</a>
+<div class="file-meta">Word • 13 KB • Editable</div>
+</div>
+</div>
+</div>
+
+<div class="resource-section">
+<h2>📊 Explainer Videos</h2>
+<div class="resource-grid">
+<div class="resource-card">
+<span class="tag">Video</span>
+<h3>ProPlum Explainer (English)</h3>
+<p>Full ProPlum Network explainer video covering the zero-click economy, AI search survival, PipeWrench methodology, and the three-legged stool ecosystem.</p>
+<a href="video.mp4" class="download-btn" download>Download MP4</a>
+<div class="file-meta">MP4 • 8.7 MB • English</div>
+</div>
+<div class="resource-card">
+<span class="tag">Video</span>
+<h3>ProPlum Explainer (Español)</h3>
+<p>Spanish-language version of the ProPlum explainer. Same content, translated for Hispanic plumber markets and Spanish-speaking franchise owners.</p>
+<a href="video-es.mp4" class="download-btn" download>Download MP4</a>
+<div class="file-meta">MP4 • 7.2 MB • Español</div>
+</div>
+</div>
+</div>
+
+<div class="resource-section">
+<h2>🖼️ Images</h2>
+<div class="resource-grid">
+<div class="resource-card">
+<span class="tag">Hero</span>
+<h3>Sam AI Dispatcher</h3>
+<p>High-resolution hero image of Sam, the AI emergency dispatch assistant. Use for landing pages, social posts, or email headers.</p>
+<a href="sam-dispatcher.png" class="download-btn" download>Download PNG</a>
+<div class="file-meta">PNG • 1.4 MB • 1920x1080</div>
+</div>
+<div class="resource-card">
+<span class="tag">Hero</span>
+<h3>Emergency Vehicle Hero</h3>
+<p>Emergency plumbing van hero image. Dark background with orange accent lighting. Perfect for crisis/emergency messaging.</p>
+<a href="hero-image.jpg" class="download-btn" download>Download JPG</a>
+<div class="file-meta">JPG • 108 KB • Optimized</div>
+</div>
+<div class="resource-card">
+<span class="tag">Logo</span>
+<h3>ProPlum Logo</h3>
+<p>Official ProPlum Network logo with transparent background. Use for co-branded materials, social profiles, or proposal covers.</p>
+<a href="hero-logo.png" class="download-btn" download>Download PNG</a>
+<div class="file-meta">PNG • 285 KB • Transparent</div>
+</div>
+<div class="resource-card">
+<span class="tag">Lifestyle</span>
+<h3>Cash & Vacation Lifestyle</h3>
+<p>Lifestyle image showing financial freedom theme. Use for commission/earnings promotions and affiliate motivation content.</p>
+<a href="cash-vacation.jpg" class="download-btn" download>Download JPG</a>
+<div class="file-meta">JPG • 150 KB • Lifestyle</div>
+</div>
+</div>
+</div>
+
+<div class="resource-section">
+<h2>💡 How to Use These Resources</h2>
+<div class="resource-grid">
+<div class="resource-card">
+<h3>1. Send the White Paper</h3>
+<p>Email the PDF to plumbing business owners, franchise HQs, or home services marketing directors. Follow up 2 days later. Close rate on white paper leads: 15-20%.</p>
+</div>
+<div class="resource-card">
+<h3>2. Create the Video</h3>
+<p>Upload the video script DOCX to Google Vids (vids.new) → File → Docs to video. Gemini auto-generates a narrated video in 3 minutes. Post to YouTube with your affiliate link in description.</p>
+</div>
+<div class="resource-card">
+<h3>3. Social Media Blitz</h3>
+<p>Post the explainer video to LinkedIn, Facebook groups, and plumbing forums. Use the Sam dispatcher image as the thumbnail. Tag local plumbing businesses.</p>
+</div>
+<div class="resource-card">
+<h3>4. Customize & Brand</h3>
+<p>Use the editable DOCX files to add your affiliate tracking links, local market data, or prospect-specific case studies before sending.</p>
+</div>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Plumbers Helper AI Affiliate Network | Need help? Contact jeffm7007@gmail.com</p>
+</footer>
+</div>
+</body>
+</html>

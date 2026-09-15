@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Application | Plumbers Helper AI</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#080C15;color:#fff;line-height:1.6;min-height:100vh}
+.container{max-width:640px;margin:0 auto;padding:2rem 1rem}
+.header{text-align:center;padding:2rem 0}
+.header h1{color:#FF6B35;font-size:1.8rem;font-weight:800}
+.header p{color:#8D9BAE;font-size:0.9rem;margin-top:0.5rem}
+.progress{display:flex;justify-content:center;gap:0.5rem;margin:2rem 0}
+.step{width:36px;height:36px;border-radius:50%;background:#1D2636;color:#5E6D82;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;transition:all 0.3s}
+.step.active{background:#FF6B35;color:#fff}
+.step.done{background:#44ff44;color:#080C15}
+.form-section{display:none;background:#0D1422;border:1px solid #1D2636;border-radius:12px;padding:2rem;margin-bottom:1.5rem}
+.form-section.active{display:block}
+.form-section h2{color:#fff;font-size:1.2rem;margin-bottom:1.5rem}
+.field{margin-bottom:1.25rem}
+.field label{display:block;color:#8D9BAE;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem}
+.field input,.field select,.field textarea{width:100%;padding:0.75rem 1rem;background:#080C15;border:1px solid #1D2636;border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#FF6B35}
+.field input::placeholder{color:#5E6D82}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.upload-zone{border:2px dashed #1D2636;border-radius:12px;padding:2rem;text-align:center;cursor:pointer;transition:all 0.2s}
+.upload-zone:hover{border-color:#FF6B35;background:rgba(255,107,53,0.05)}
+.upload-zone .icon{font-size:2rem;margin-bottom:0.5rem}
+.upload-zone p{color:#8D9BAE;font-size:0.85rem}
+.upload-zone .filename{color:#FF6B35;font-size:0.85rem;margin-top:0.5rem;display:none}
+.nav-btns{display:flex;justify-content:space-between;margin-top:2rem}
+.btn{padding:0.85rem 2rem;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.btn-primary{background:#FF6B35;color:#fff}
+.btn-primary:hover{background:#e55a2b}
+.btn-secondary{background:#1D2636;color:#8D9BAE}
+.btn-secondary:hover{background:#2a3648}
+.review-item{display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:1px solid #1D2636}
+.review-item .label{color:#8D9BAE;font-size:0.85rem}
+.review-item .value{color:#fff;font-size:0.9rem;font-weight:600}
+.status-box{text-align:center;padding:3rem 2rem}
+.status-icon{font-size:4rem;margin-bottom:1rem}
+.status-title{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}
+.status-msg{color:#8D9BAE;font-size:0.95rem;max-width:400px;margin:0 auto}
+.status-approved .status-title{color:#44ff44}
+.status-pending .status-title{color:#ffaa00}
+.status-rejected .status-title{color:#ff4444}
+.badge{display:inline-block;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.75rem;font-weight:600;margin-top:1rem}
+.badge-pending{background:rgba(255,170,0,0.1);color:#ffaa00;border:1px solid rgba(255,170,0,0.2)}
+.badge-approved{background:rgba(68,255,68,0.1);color:#44ff44;border:1px solid rgba(68,255,68,0.2)}
+.back-link{display:inline-block;color:#5E6D82;font-size:0.85rem;text-decoration:none;margin-bottom:2rem}
+.back-link:hover{color:#FF6B35}
+@media(max-width:480px){.field-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <!-- PASSWORD GATE -->
+  <div id="gate-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#080C15;z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;">
+    <div style="background:#0D1422;border:1px solid #1D2636;border-radius:16px;padding:2.5rem;max-width:420px;width:100%;text-align:center;">
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">🔒</div>
+        <h2 style="color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:0.25rem;">Affiliate Application</h2>
+        <p style="color:#8D9BAE;font-size:0.85rem;">Enter your credentials to access the application</p>
+      </div>
+      <div style="margin-bottom:1rem;text-align:left;">
+        <label style="display:block;color:#8D9BAE;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Business Email</label>
+        <input type="email" id="gate-email" placeholder="your business email" style="width:100%;padding:0.75rem 1rem;background:#080C15;border:1px solid #1D2636;border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;outline:none;" autofocus>
+      </div>
+      <div style="margin-bottom:1.5rem;text-align:left;">
+        <label style="display:block;color:#8D9BAE;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Password</label>
+        <input type="password" id="gate-password" placeholder="••••••••" style="width:100%;padding:0.75rem 1rem;background:#080C15;border:1px solid #1D2636;border-radius:8px;color:#fff;font-size:0.95rem;font-family:inherit;outline:none;">
+      </div>
+      <button onclick="checkGate()" style="width:100%;padding:0.85rem;background:#FF6B35;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;">Access Application →</button>
+      <p id="gate-error" style="color:#ff4444;font-size:0.8rem;margin-top:0.75rem;display:none;">Invalid password. Try again.</p>
+      <p style="color:#5E6D82;font-size:0.75rem;margin-top:1rem;">Don't have credentials? <a href="mailto:jeffm7007@gmail.com" style="color:#FF6B35;text-decoration:none;">Request access</a></p>
+    </div>
+  </div>
+  <script>
+    (function() {
+      if (sessionStorage.getItem('portal_auth') === 'true') {
+        document.getElementById('gate-overlay').style.display = 'none';
+        return;
+      }
+      document.body.style.overflow = 'hidden';
+    })();
+    function checkGate() {
+      var email = document.getElementById('gate-email').value.trim();
+      var pass = document.getElementById('gate-password').value;
+      if (pass === 'password') {
+        sessionStorage.setItem('portal_auth', 'true');
+        sessionStorage.setItem('portal_email', email);
+        document.getElementById('gate-overlay').style.display = 'none';
+        document.body.style.overflow = '';
+      } else {
+        document.getElementById('gate-error').style.display = 'block';
+        document.getElementById('gate-password').value = '';
+        document.getElementById('gate-password').focus();
+      }
+    }
+    document.getElementById('gate-password').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkGate();
+    });
+    document.getElementById('gate-email').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('gate-password').focus();
+    });
+  </script>
+<div class="container">
+
+<a href="index.html" class="back-link">← Back to Portal</a>
+
+<div class="header">
+  <h1>Affiliate Application</h1>
+  <p>Verify your plumbing business to start earning referral commissions</p>
+</div>
+
+<div class="progress">
+  <div class="step active" id="step1">1</div>
+  <div class="step" id="step2">2</div>
+  <div class="step" id="step3">3</div>
+  <div class="step" id="step4">4</div>
+</div>
+
+<!-- STEP 1: Business Info -->
+<div class="form-section active" id="section1">
+  <h2>Business Information</h2>
+  <div class="field">
+    <label>Business Name *</label>
+    <input type="text" id="business_name" placeholder="Mann Plumbing LLC" required>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <label>License Number *</label>
+      <input type="text" id="license_number" placeholder="PL-12345" required>
+    </div>
+    <div class="field">
+      <label>License State *</label>
+      <select id="license_state" required>
+        <option value="">Select state</option>
+        <option value="MN">Minnesota</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+        <option value="IL">Illinois</option>
+        <option value="FL">Florida</option>
+        <option value="TX">Texas</option>
+        <option value="CA">California</option>
+        <option value="NY">New York</option>
+        <option value="CO">Colorado</option>
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label>Business EIN / Tax ID *</label>
+    <input type="text" id="ein" placeholder="82-1234567" required>
+  </div>
+  <div class="field">
+    <label>Business Address *</label>
+    <input type="text" id="street" placeholder="Street address" required>
+  </div>
+  <div class="field-row">
+    <div class="field">
+      <input type="text" id="city" placeholder="City" required>
+    </div>
+    <div class="field">
+      <input type="text" id="zip" placeholder="ZIP" required>
+    </div>
+  </div>
+  <div class="nav-btns">
+    <span></span>
+    <button class="btn btn-primary" onclick="nextStep(1)">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 2: Owner Identity -->
+<div class="form-section" id="section2">
+  <h2>Owner Information</h2>
+  <div class="field-row">
+    <div class="field">
+      <label>First Name *</label>
+      <input type="text" id="owner_first" placeholder="Jeff" required>
+    </div>
+    <div class="field">
+      <label>Last Name *</label>
+      <input type="text" id="owner_last" placeholder="Mann" required>
+    </div>
+  </div>
+  <div class="field">
+    <label>Date of Birth *</label>
+    <input type="date" id="owner_dob" required>
+  </div>
+  <div class="field">
+    <label>Email *</label>
+    <input type="email" id="email" placeholder="jeff@mannplumbing.com" required>
+  </div>
+  <div class="field">
+    <label>Phone *</label>
+    <input type="tel" id="phone" placeholder="612-555-0123" required>
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+    <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 3: Documents -->
+<div class="form-section" id="section3">
+  <h2>Identity Verification</h2>
+  <div class="field">
+    <label>Driver's License / ID (Front) *</label>
+    <div class="upload-zone" onclick="document.getElementById('id_doc').click()">
+      <div class="icon">📄</div>
+      <p>Click to upload or drag & drop</p>
+      <p style="font-size:0.75rem;margin-top:0.25rem;">JPG, PNG, or PDF — max 10MB</p>
+      <div class="filename" id="id_doc_name"></div>
+    </div>
+    <input type="file" id="id_doc" accept="image/*,.pdf" style="display:none" onchange="showFileName(this, 'id_doc_name')">
+  </div>
+  <div class="field">
+    <label>Selfie (for face match) *</label>
+    <div class="upload-zone" onclick="document.getElementById('selfie').click()">
+      <div class="icon">📸</div>
+      <p>Take a photo or upload</p>
+      <p style="font-size:0.75rem;margin-top:0.25rem;">We'll match this against your ID</p>
+      <div class="filename" id="selfie_name"></div>
+    </div>
+    <input type="file" id="selfie" accept="image/*" capture="user" style="display:none" onchange="showFileName(this, 'selfie_name')">
+  </div>
+  <div class="field">
+    <label>W-9 Tax Form *</label>
+    <div class="upload-zone" onclick="document.getElementById('w9').click()">
+      <div class="icon">📋</div>
+      <p>Upload completed W-9</p>
+      <p style="font-size:0.75rem;margin-top:0.25rem;">Required for commission payouts (IRS 1099)</p>
+      <div class="filename" id="w9_name"></div>
+    </div>
+    <input type="file" id="w9" accept=".pdf,image/*" style="display:none" onchange="showFileName(this, 'w9_name')">
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+    <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+  </div>
+</div>
+
+<!-- STEP 4: Review & Submit -->
+<div class="form-section" id="section4">
+  <h2>Review Application</h2>
+  <div id="review-content">
+    <!-- Populated by JS -->
+  </div>
+  <div class="nav-btns">
+    <button class="btn btn-secondary" onclick="prevStep(4)">← Back</button>
+    <button class="btn btn-primary" onclick="submitApplication()">Submit Application →</button>
+  </div>
+</div>
+
+<!-- RESULT: Status -->
+<div class="form-section" id="result">
+  <div class="status-box" id="status-box">
+    <div class="status-icon">⏳</div>
+    <div class="status-title">Verifying...</div>
+    <div class="status-msg">Running KYC checks...</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+var formData = {};
+
+function nextStep(current) {
+  // Save current step data
+  saveStepData(current);
+  
+  // Validation
+  if (!validateStep(current)) return;
+  
+  // Hide current, show next
+  document.getElementById('section' + current).classList.remove('active');
+  document.getElementById('step' + current).classList.remove('active');
+  document.getElementById('step' + current).classList.add('done');
+  
+  var next = current + 1;
+  document.getElementById('section' + next).classList.add('active');
+  document.getElementById('step' + next).classList.add('active');
+  
+  // If going to review, populate it
+  if (next === 4) populateReview();
+}
+
+function prevStep(current) {
+  document.getElementById('section' + current).classList.remove('active');
+  document.getElementById('step' + current).classList.remove('active');
+  
+  var prev = current - 1;
+  document.getElementById('section' + prev).classList.add('active');
+  document.getElementById('step' + prev).classList.add('active');
+  document.getElementById('step' + prev).classList.remove('done');
+}
+
+function saveStepData(step) {
+  if (step === 1) {
+    formData.business_name = document.getElementById('business_name').value;
+    formData.license_number = document.getElementById('license_number').value;
+    formData.license_state = document.getElementById('license_state').value;
+    formData.ein = document.getElementById('ein').value;
+    formData.street = document.getElementById('street').value;
+    formData.city = document.getElementById('city').value;
+    formData.zip = document.getElementById('zip').value;
+  } else if (step === 2) {
+    formData.owner_first = document.getElementById('owner_first').value;
+    formData.owner_last = document.getElementById('owner_last').value;
+    formData.owner_dob = document.getElementById('owner_dob').value;
+    formData.email = document.getElementById('email').value;
+    formData.phone = document.getElementById('phone').value;
+  } else if (step === 3) {
+    formData.id_doc = document.getElementById('id_doc').files[0]?.name || '';
+    formData.selfie = document.getElementById('selfie').files[0]?.name || '';
+    formData.w9 = document.getElementById('w9').files[0]?.name || '';
+  }
+}
+
+function validateStep(step) {
+  var required = {
+    1: ['business_name', 'license_number', 'license_state', 'ein', 'street', 'city', 'zip'],
+    2: ['owner_first', 'owner_last', 'owner_dob', 'email', 'phone'],
+  };
+  
+  if (required[step]) {
+    for (var i = 0; i < required[step].length; i++) {
+      var el = document.getElementById(required[step][i]);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#ff4444';
+        el.focus();
+        return false;
+      } else {
+        el.style.borderColor = '#1D2636';
+      }
+    }
+  }
+  
+  if (step === 3) {
+    var files = ['id_doc', 'selfie', 'w9'];
+    for (var i = 0; i < files.length; i++) {
+      if (!document.getElementById(files[i]).files.length) {
+        alert('Please upload all required documents');
+        return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+function populateReview() {
+  var html = '';
+  var items = [
+    ['Business', formData.business_name],
+    ['License', formData.license_number + ' (' + formData.license_state + ')'],
+    ['EIN', formData.ein],
+    ['Address', formData.street + ', ' + formData.city + ' ' + formData.zip],
+    ['Owner', formData.owner_first + ' ' + formData.owner_last],
+    ['Email', formData.email],
+    ['Phone', formData.phone],
+    ['ID Document', formData.id_doc || 'Uploaded'],
+    ['Selfie', formData.selfie || 'Uploaded'],
+    ['W-9', formData.w9 || 'Uploaded'],
+  ];
+  
+  for (var i = 0; i < items.length; i++) {
+    html += '<div class="review-item"><span class="label">' + items[i][0] + '</span><span class="value">' + items[i][1] + '</span></div>';
+  }
+  
+  document.getElementById('review-content').innerHTML = html;
+}
+
+function showFileName(input, displayId) {
+  if (input.files.length > 0) {
+    var el = document.getElementById(displayId);
+    el.textContent = input.files[0].name;
+    el.style.display = 'block';
+  }
+}
+
+function submitApplication() {
+  // Hide form, show result
+  document.querySelectorAll('.form-section').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.add('done'); s.classList.remove('active'); });
+  document.getElementById('result').classList.add('active');
+  
+  // Build application object
+  var application = {
+    business_name: formData.business_name,
+    license_number: formData.license_number,
+    license_state: formData.license_state,
+    owner_name: formData.owner_first + ' ' + formData.owner_last,
+    owner_dob: formData.owner_dob,
+    email: formData.email,
+    phone: formData.phone,
+    ein: formData.ein,
+    address: {
+      street: formData.street,
+      city: formData.city,
+      state: formData.license_state,
+      zip: formData.zip,
+    },
+    id_document: formData.id_doc,
+    selfie: formData.selfie,
+    w9_form: formData.w9,
+    submitted_at: new Date().toISOString(),
+  };
+  
+  // In production: POST to /api/kyc endpoint
+  // For now, simulate the verification locally
+  simulateVerification(application);
+}
+
+function simulateVerification(app) {
+  var box = document.getElementById('status-box');
+  var steps = [
+    { delay: 800, icon: '🔍', title: 'Verifying License...', msg: 'Checking ' + app.license_state + ' licensing board records...' },
+    { delay: 1600, icon: '📄', title: 'Processing ID...', msg: 'Extracting identity data from document...' },
+    { delay: 2400, icon: '🔒', title: 'Screening...', msg: 'Checking sanctions and PEP lists...' },
+    { delay: 3200, icon: '💰', title: 'Validating Tax ID...', msg: 'Verifying EIN format...' },
+  ];
+  
+  for (var i = 0; i < steps.length; i++) {
+    (function(step) {
+      setTimeout(function() {
+        box.innerHTML = '<div class="status-icon">' + step.icon + '</div>' +
+          '<div class="status-title">' + step.title + '</div>' +
+          '<div class="status-msg">' + step.msg + '</div>';
+      }, step.delay);
+    })(steps[i]);
+  }
+  
+  // Final result
+  setTimeout(function() {
+    var riskScore = 0;
+    var reasons = [];
+    
+    // License check (simulated — in production, hits real database)
+    riskScore += 15;
+    reasons.push('License verified with state board');
+    
+    // Sanctions (simulated clear)
+    reasons.push('No sanctions matches found');
+    
+    // Tax ID format
+    var ein = app.ein.replace(/[-\s]/g, '');
+    if (ein.length === 9) {
+      reasons.push('Tax ID format valid');
+    } else {
+      riskScore += 25;
+      reasons.push('Tax ID format issue — needs review');
+    }
+    
+    // Documents provided
+    if (app.id_document && app.selfie && app.w9_form) {
+      reasons.push('All documents received');
+    } else {
+      riskScore += 20;
+      reasons.push('Missing documents — needs review');
+    }
+    
+    var status, icon, titleClass;
+    if (riskScore < 20) {
+      status = 'approved';
+      icon = '✅';
+      titleClass = 'status-approved';
+    } else if (riskScore < 50) {
+      status = 'pending';
+      icon = '⏳';
+      titleClass = 'status-pending';
+    } else {
+      status = 'rejected';
+      icon = '❌';
+      titleClass = 'status-rejected';
+    }
+    
+    var reasonsHtml = reasons.map(function(r) { return '<li style="margin:0.25rem 0;">' + r + '</li>'; }).join('');
+    
+    box.className = 'status-box ' + titleClass;
+    box.innerHTML = '<div class="status-icon">' + icon + '</div>' +
+      '<div class="status-title">' + (status === 'approved' ? 'Application Approved!' : status === 'pending' ? 'Pending Review' : 'Application Rejected') + '</div>' +
+      '<div class="status-msg"><ul style="text-align:left;max-width:350px;margin:1rem auto;list-style:none;">' + reasonsHtml + '</ul></div>' +
+      '<span class="badge badge-' + status + '">' + status.toUpperCase() + '</span>' +
+      (status === 'approved' 
+        ? '<p style="margin-top:1.5rem;color:#8D9BAE;font-size:0.85rem;">Check your email for your affiliate dashboard login.</p>'
+        : '<p style="margin-top:1.5rem;color:#8D9BAE;font-size:0.85rem;">Our team will review your application within 1-2 business days.<br>Questions? Email <a href="mailto:jeffm7007@gmail.com" style="color:#FF6B35;">support</a></p>');
+  }, 4200);
+}
+</script>
+</body>
+</html>
