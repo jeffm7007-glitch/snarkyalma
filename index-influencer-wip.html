@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnarkyAlma — Influencer Content That Sells</title>
+    <meta name="description" content="SnarkyAlma creates cutting-edge influencer content for home service brands. AI-assisted production, real creators, measurable sales.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --gray-800: #262626;
+            --accent: #ff3b30;
+            --accent-hover: #e6352b;
+            --lime: #c8ff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Navigation */
+        .top-bar {
+            background: var(--black);
+            border-bottom: 1px solid var(--gray-800);
+            padding: 12px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+        .top-bar a {
+            color: var(--lime);
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 600;
+        }
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--lime);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--white);
+            color: var(--black);
+            padding: 0.625rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--lime);
+            color: var(--black);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(200, 255, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge span {
+            color: var(--lime);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 800;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--lime);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--lime);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(200, 255, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            margin-top: 5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--lime);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 4rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .marquee {
+            display: flex;
+            gap: 4rem;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-item {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .marquee-item::after {
+            content: '•';
+            color: var(--lime);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--lime);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--lime), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--lime);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray-400);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-features li {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-features li::before {
+            content: '→';
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        /* Process */
+        .process {
+            padding: 8rem 3rem;
+            background: var(--gray-800);
+        }
+
+        .process-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            right: -1rem;
+            width: 2rem;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .step-icon {
+            width: 4rem;
+            height: 4rem;
+            background: rgba(200, 255, 0, 0.1);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Results */
+        .results {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .result-card .number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card .label {
+            color: var(--gray-400);
+            font-size: 0.9375rem;
+        }
+
+        .result-card .context {
+            color: var(--gray-600);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Showcase */
+        .showcase {
+            padding: 8rem 3rem;
+            background: var(--gray-800);
+        }
+
+        .showcase-grid {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .showcase-item {
+            background: var(--black);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .showcase-item .showcase-visual {
+            height: 280px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.05), rgba(255, 255, 255, 0.02));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            position: relative;
+        }
+
+        .showcase-item .showcase-content {
+            padding: 2rem;
+        }
+
+        .showcase-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-item p {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        .showcase-tag {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--lime);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 255, 0, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            color: var(--gray-600);
+            font-size: 0.75rem;
+        }
+
+        .powered-by {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            font-size: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .powered-by a {
+            color: var(--lime);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="site-in-a-box.html">Site in a Box ($297/mo)</a>
+        <a href="affiliates.html">Affiliates</a>
+        <a href="black-card.html">Black Card</a>
+    </div>
+    <nav>
+        <a href="#" class="logo">
+            SnarkyAlma <span class="logo-dot"></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#showcase">Work</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <div class="hero-badge">
+                <span>ProPlum Creative Studio</span> — Now Accepting Clients
+            </div>
+            <h1>Influencer Content That <em>Actually Sells</em></h1>
+            <p class="hero-subtitle">
+                We create cutting-edge influencer campaigns for home service brands. 
+                AI-assisted production, real creators, measurable revenue.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">
+                    Book a Strategy Call →
+                </a>
+                <a href="#showcase" class="btn-secondary">
+                    See Our Work
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">12.5M+</div>
+                    <div class="stat-label">Views Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">340%</div>
+                    <div class="stat-label">Avg. ROAS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$3.50</div>
+                    <div class="stat-label">Cost Per Lead</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-item">TikTok Campaigns</div>
+            <div class="marquee-item">Instagram Reels</div>
+            <div class="marquee-item">YouTube Shorts</div>
+            <div class="marquee-item">UGC Production</div>
+            <div class="marquee-item">AI-Assisted Content</div>
+            <div class="marquee-item">Creator Matchmaking</div>
+            <div class="marquee-item">Brand Ambassadorships</div>
+            <div class="marquee-item">Performance Tracking</div>
+            <div class="marquee-item">TikTok Campaigns</div>
+            <div class="marquee-item">Instagram Reels</div>
+            <div class="marquee-item">YouTube Shorts</div>
+            <div class="marquee-item">UGC Production</div>
+            <div class="marquee-item">AI-Assisted Content</div>
+            <div class="marquee-item">Creator Matchmaking</div>
+            <div class="marquee-item">Brand Ambassadorships</div>
+            <div class="marquee-item">Performance Tracking</div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Services Built for Home Service Growth</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>Creator Matchmaking</h3>
+                <p>We find, vet, and negotiate with plumbing and home service influencers who actually convert — not just vanity metrics.</p>
+                <ul class="service-features">
+                    <li>Nano to macro creator sourcing</li>
+                    <li>Audience demographic analysis</li>
+                    <li>Competitor partnership audits</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>UGC Production</h3>
+                <p>High-converting user-generated content shot by real creators, edited for performance, optimized for paid social.</p>
+                <ul class="service-features">
+                    <li>Script-to-screen production</li>
+                    <li>Hook optimization (first 3 seconds)</li>
+                    <li>A/B creative variants</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>AI-Assisted Content</h3>
+                <p>Cut production costs by 80% with AI-generated B-roll, voiceovers, and motion graphics — always disclosed, always compliant.</p>
+                <ul class="service-features">
+                    <li>AI B-roll and animations</li>
+                    <li>Synthetic voiceover (disclosed)</li>
+                    <li>Automated captioning & localization</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-number">04</div>
+                <h3>Brand Ambassadorships</h3>
+                <p>Long-term creator partnerships that build trust over time. Quarterly contracts, co-branded content, revenue sharing.</p>
+                <ul class="service-features">
+                    <li>Quarterly creator contracts</li>
+                    <li>Revenue share structures</li>
+                    <li>Exclusive territory rights</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-number">05</div>
+                <h3>Performance Creative</h3>
+                <p>Data-driven creative production. We analyze what works, iterate fast, and scale winners across platforms.</p>
+                <ul class="service-features">
+                    <li>Real-time performance tracking</li>
+                    <li>Creative fatigue monitoring</li>
+                    <li>Winning concept scaling</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-number">06</div>
+                <h3>Full Funnel Management</h3>
+                <p>From first impression to booked appointment. We manage the entire influencer-to-lead pipeline with transparent reporting.</p>
+                <ul class="service-features">
+                    <li>Lead tracking per creator</li>
+                    <li>Attribution modeling</li>
+                    <li>ROI dashboard access</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="section-header">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title" style="color: var(--white);">From Brief to Booked Calls in 14 Days</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-icon">📋</div>
+                <h3>Discovery</h3>
+                <p>We audit your brand, competitors, and ideal customer to build a creator strategy.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">🎯</div>
+                <h3>Casting</h3>
+                <p>We source and vet creators who match your brand voice and convert in your market.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">🎬</div>
+                <h3>Production</h3>
+                <p>Content is created, edited, and optimized — with AI assistance where it accelerates without sacrificing authenticity.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-icon">📈</div>
+                <h3>Scale</h3>
+                <p>We launch, measure, and double down on what converts. Full attribution, full transparency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="results" id="results">
+        <div class="section-header">
+            <div class="section-label">Results</div>
+            <h2 class="section-title">Performance That Speaks</h2>
+        </div>
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="number">2.3x</div>
+                <div class="label">More organic mentions with no-obligation gifting vs. paid asks</div>
+                <div class="context">Industry Benchmark</div>
+            </div>
+            <div class="result-card">
+                <div class="number">35%</div>
+                <div class="label">Higher response rate with 15-min personalized research vs. templates</div>
+                <div class="context">Outreach Improvement</div>
+            </div>
+            <div class="result-card">
+                <div class="number">71%</div>
+                <div class="label">Of creators prefer upfront budget discussion in first contact</div>
+                <div class="context">Creator Preference</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase" id="showcase">
+        <div class="section-header">
+            <div class="section-label">Selected Work</div>
+            <h2 class="section-title" style="color: var(--white);">Campaigns That Converted</h2>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <div class="showcase-visual">
+                    [Emergency Dispatch Video Campaign]
+                </div>
+                <div class="showcase-content">
+                    <span class="showcase-tag">TikTok + Reels</span>
+                    <h3>Emergency Plumber Response Campaign</h3>
+                    <p>Partnered with 12 local trade creators to produce "2 AM emergency" content. Generated 4.2M views and 847 qualified leads in 30 days.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-visual">
+                    [DIY Prevention Series]
+                </div>
+                <div class="showcase-content">
+                    <span class="showcase-tag">YouTube Shorts</span>
+                    <h3>"Stop the Flood Before It Starts" Series</h3>
+                    <p>Educational content featuring real plumbers + AI-animated pipe diagrams. 1.8M views, 12% click-through to booking page.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-visual">
+                    [Brand Ambassador Program]
+                </div>
+                <div class="showcase-content">
+                    <span class="showcase-tag">Ambassadorship</span>
+                    <h3>Quarterly Creator Partnership</h3>
+                    <p>Locked 6 creators into 90-day exclusive contracts. Average 23 posts each, $11 CPA vs. $47 for traditional paid social.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-visual">
+                    [AI-Assisted Explainer]
+                </div>
+                <div class="showcase-content">
+                    <span class="showcase-tag">AI + Live Action</span>
+                    <h3>"How Your Water Heater Works" Explainer</h3>
+                    <p>Real plumber host + AI-generated cross-section animations. Disclosed AI usage. 340K views, highest engagement rate of Q2.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Turn Creators Into Customers?</h2>
+        <p>Book a free strategy call. We'll audit your market, identify your first 10 creators, and build a 90-day campaign plan.</p>
+        <div class="hero-cta-group">
+            <a href="mailto:hello@snarkyalma.com?subject=Strategy%20Call%20Request" class="btn-primary">
+                Book a Free Strategy Call →
+            </a>
+            <a href="https://proplumnetwork.com" class="btn-secondary" target="_blank">
+                Learn About ProPlum
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SnarkyAlma <span class="logo-dot"></span></div>
+        <p class="footer-tagline">Creating cutting-edge influencer content that sells.</p>
+        <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#showcase">Work</a></li>
+            <li><a href="mailto:hello@snarkyalma.com">Contact</a></li>
+        </ul>
+        <p class="footer-copy">© 2026 SnarkyAlma. All rights reserved.</p>
+        <div class="powered-by">
+            A ProPlum Network Studio — <a href="https://proplumnetwork.com" target="_blank">proplumnetwork.com</a>
+        </div>
+    </footer>
+</body>
+</html>
